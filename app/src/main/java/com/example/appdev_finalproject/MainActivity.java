@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.activity_sign_in_langscape);
+            setContentView(R.layout.activity_sign_in_landscape);
         }
     }
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.activity_sign_in_langscape);
+            setContentView(R.layout.activity_sign_in_landscape);
         } else {
             setContentView(R.layout.activity_sign_in);
         }
