@@ -1,30 +1,29 @@
 package com.example.appdev_finalproject;
 
-import android.content.res.Configuration;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_main);
 
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.activity_sign_in_landscape);
-        }
+        setupListeners();
     }
 
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
+    private void setupListeners() {
+        Button myButton = findViewById(R.id.myButton);
 
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.activity_sign_in_landscape);
-        } else {
-            setContentView(R.layout.activity_sign_in);
-        }
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SignUp.class));
+            }
+        });
     }
 }

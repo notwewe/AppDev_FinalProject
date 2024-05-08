@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/signinbg"
-        android:layout_width="453dp"
-        android:layout_height="414dp"
+        android:layout_width="731dp"
+        android:layout_height="412dp"
         android:contentDescription="bgimg"
         android:scaleType="fitXY"
         android:src="@drawable/signinbg"
