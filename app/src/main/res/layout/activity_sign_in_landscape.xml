@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/signinbg"
-        android:layout_width="731dp"
-        android:layout_height="412dp"
+        android:layout_width="504dp"
+        android:layout_height="411dp"
         android:contentDescription="bgimg"
         android:scaleType="fitXY"
         android:src="@drawable/signinbg"
@@ -153,6 +153,7 @@
             android:textColor="#000000"
             android:textSize="15sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.031"
             app:layout_constraintStart_toEndOf="@+id/dontHaveAccountText"
@@ -169,6 +170,7 @@
             android:textColor="#868889"
             android:textSize="15sp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 

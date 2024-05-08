@@ -10,20 +10,22 @@
 
     <ImageView
         android:id="@+id/signinbg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="504dp"
+        android:layout_height="411dp"
         android:contentDescription="bgimg"
         android:scaleType="fitXY"
         android:src="@drawable/signinbg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_up_bg_"
-        android:layout_width="411dp"
-        android:layout_height="564dp"
+        android:layout_width="413dp"
+        android:layout_height="411dp"
         android:background="@drawable/signincontent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,9 +64,9 @@
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/name"
@@ -85,9 +87,8 @@
         <EditText
             android:id="@+id/phoneEditText"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/num"
@@ -108,9 +109,8 @@
         <EditText
             android:id="@+id/studentIDEditText"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/schoolid"
@@ -131,9 +131,8 @@
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableStart="@drawable/password"
@@ -158,7 +157,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/gradient_button_background"
             android:fontFamily="@font/poppins"
@@ -186,6 +185,7 @@
             android:textColor="#000000"
             android:textSize="15sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/alreadyHaveAccountText"
             app:layout_constraintTop_toBottomOf="@id/signUpButton" />
 
@@ -201,6 +201,7 @@
             android:textColor="#868889"
             android:textSize="15sp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/signUpButton" />
 
