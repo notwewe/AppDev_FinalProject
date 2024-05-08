@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class SignIn extends AppCompatActivity {
+public class SignIn extends Base {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,28 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_button_background"
     android:clipChildren="true"
     tools:context=".SignUp">
 
     <ImageView
         android:id="@+id/signinbg"
-        android:layout_width="504dp"
-        android:layout_height="411dp"
+        android:layout_width="515dp"
+        android:layout_height="412dp"
         android:contentDescription="bgimg"
         android:scaleType="fitXY"
         android:src="@drawable/signinbg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_up_bg_"
         android:layout_width="413dp"
-        android:layout_height="411dp"
+        android:layout_height="413dp"
         android:background="@drawable/signincontent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
