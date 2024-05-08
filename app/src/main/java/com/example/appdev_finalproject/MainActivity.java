@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends Base {
 
@@ -17,12 +16,13 @@ public class MainActivity extends Base {
     }
 
     private void setupListeners() {
-        Button myButton = findViewById(R.id.myButton);
+        View constraintLayout = findViewById(R.id.startclick); // Get the ConstraintLayout by its ID
 
-        myButton.setOnClickListener(new View.OnClickListener() {
+        // Set OnClickListener for the ConstraintLayout
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SignUp.class));
+                startActivity(new Intent(MainActivity.this, SignIn.class));
             }
         });
     }
