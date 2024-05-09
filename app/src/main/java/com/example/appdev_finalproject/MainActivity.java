@@ -1,6 +1,4 @@
 package com.example.appdev_finalproject;
-
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,13 +14,12 @@ public class MainActivity extends Base {
     }
 
     private void setupListeners() {
-        View constraintLayout = findViewById(R.id.startclick); // Get the ConstraintLayout by its ID
+        View constraintLayout = findViewById(R.id.startclick);
 
-        // Set OnClickListener for the ConstraintLayout
         constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SignIn.class));
+                startActivity(new Intent(MainActivity.this, IntroSlideActivity.class));
             }
         });
     }
