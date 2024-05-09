@@ -21,7 +21,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_up_bg_"
-        android:layout_width="413dp"
+        android:layout_width="477dp"
         android:layout_height="413dp"
         android:background="@drawable/signincontent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +64,6 @@
             android:layout_height="47dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/name"
             android:drawablePadding="8dp"
@@ -76,8 +75,6 @@
             android:textColorHint="#868889"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/signInText" />
 
@@ -86,7 +83,6 @@
             android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/num"
             android:drawablePadding="8dp"
@@ -98,8 +94,6 @@
             android:textColorHint="#868889"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/studentIDEditText" />
 
@@ -108,7 +102,6 @@
             android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/schoolid"
             android:drawablePadding="8dp"
@@ -120,8 +113,6 @@
             android:textColorHint="#868889"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameEditText" />
 
@@ -130,7 +121,6 @@
             android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableStart="@drawable/password"
             android:drawableEnd="@drawable/passhide"
@@ -144,26 +134,21 @@
             android:textColorHint="#868889"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/phoneEditText" />
 
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="0dp"
+            android:layout_width="397dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/gradient_button_background"
             android:fontFamily="@font/poppins"
             android:text="Sign Up"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
 
