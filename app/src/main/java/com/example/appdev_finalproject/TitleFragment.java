@@ -1,6 +1,7 @@
 package com.example.appdev_finalproject;
 
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,10 @@ public class TitleFragment extends Fragment {
 
     private static final String ARG_TITLE = "arg_title";
 
-    public static TitleFragment newInstance(String title) {
+    public static TitleFragment newInstance(CharSequence title) {
         TitleFragment fragment = new TitleFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_TITLE, title);
+        args.putCharSequence(ARG_TITLE, title);
         fragment.setArguments(args);
         return fragment;
     }
@@ -29,7 +30,7 @@ public class TitleFragment extends Fragment {
 
         Bundle args = getArguments();
         if (args != null) {
-            String title = args.getString(ARG_TITLE);
+            CharSequence title = args.getCharSequence(ARG_TITLE);
             titleTextView.setText(title);
         }
 

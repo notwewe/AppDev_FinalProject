@@ -32,9 +32,9 @@ public class IntroSlideActivity extends Base {
         titleTextView = findViewById(R.id.titleTextView);
 
         pages = new ArrayList<>();
-        pages.add(new IntroSlidePage(R.drawable.imageslide1, "Welcome to CIT - U Wild Canteen"));
+        pages.add(new IntroSlidePage(R.drawable.imageslide1, "Welcome to \n CIT-U Wild Canteen"));
         pages.add(new IntroSlidePage(R.drawable.imageslide2, "Enjoy a Hassle-Free Experience"));
-        pages.add(new IntroSlidePage(R.drawable.imageslide3, "Order Food in Advance"));
+        pages.add(new IntroSlidePage(R.drawable.imageslide3, "Order Food \n in Advance"));
 
         adapter = new IntroSlidePagerAdapter(getSupportFragmentManager(), pages);
         viewPager.setAdapter(adapter);
