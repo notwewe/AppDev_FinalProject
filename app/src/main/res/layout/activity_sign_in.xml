@@ -20,8 +20,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_in_bg_"
-        android:layout_width="414dp"
-        android:layout_height="433dp"
+        android:layout_width="413dp"
+        android:layout_height="475dp"
         android:background="@drawable/signincontent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,13 +152,13 @@
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+            app:layout_constraintTop_toBottomOf="@+id/loginButton"
+            app:layout_constraintVertical_bias="0.14" />
 
         <TextView
             android:id="@+id/signUpText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:clickable="true"
@@ -170,9 +170,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.086"
+            app:layout_constraintHorizontal_bias="0.087"
             app:layout_constraintStart_toEndOf="@+id/dontHaveAccountText"
-            app:layout_constraintTop_toBottomOf="@id/loginButton" />
+            app:layout_constraintTop_toBottomOf="@id/loginButton"
+            app:layout_constraintVertical_bias="0.14" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
