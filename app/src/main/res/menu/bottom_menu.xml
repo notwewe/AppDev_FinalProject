@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/algorithm"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Algorithm" />
+
+    <item
+        android:id="@+id/course"
+        android:icon="@drawable/baseline_bookmark_border_24"
+        android:title="Course" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/baseline_person_outline_24"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/navigation_bar"
+        android:icon="@drawable/reorder"
+        android:title="Navigation Bar" />
+</menu>
