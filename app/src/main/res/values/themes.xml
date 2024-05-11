@@ -13,7 +13,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:listDivider">whitet</item>
+        <item name="android:listDivider"></item>
         <item name="android:textColorSecondary">@drawable/screen_background_holo_light</item>
 
 
