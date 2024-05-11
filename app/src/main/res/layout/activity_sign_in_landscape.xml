@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@id/welcomeText" />
 
         <EditText
-            android:id="@+id/loginstudentIDEditText"
+            android:id="@+id/studentIDEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -96,7 +96,7 @@
             android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginstudentIDEditText" />
+            app:layout_constraintTop_toBottomOf="@id/studentIDEditText" />
 
         <TextView
             android:id="@+id/forgotPasswordText"

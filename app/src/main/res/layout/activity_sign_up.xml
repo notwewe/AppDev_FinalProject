@@ -104,10 +104,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginstudentIDEditText" />
+            app:layout_constraintTop_toBottomOf="@id/studIDEditText" />
 
         <EditText
-            android:id="@+id/loginstudentIDEditText"
+            android:id="@+id/studIDEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -130,7 +130,7 @@
             app:layout_constraintTop_toBottomOf="@id/nameEditText" />
 
         <EditText
-            android:id="@+id/loginpasswordEditText"
+            android:id="@+id/passEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -171,7 +171,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginpasswordEditText" />
+            app:layout_constraintTop_toBottomOf="@id/passEditText" />
 
         <TextView
             android:id="@+id/alreadyHaveAccountText"

@@ -18,9 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
-public class SignIn extends Base {
+public class SignIn extends AppCompatActivity {
     EditText loginStudID, loginPass;
 
 
@@ -34,9 +32,10 @@ public class SignIn extends Base {
             setContentView(R.layout.activity_sign_in);
         }
 
-        loginStudID = findViewById(R.id.loginstudentIDEditText);
-        loginPass = findViewById(R.id.loginpasswordEditText);
+        loginStudID = findViewById(R.id.loginstudIDEditText);
+        loginPass = findViewById(R.id.loginpassEditText);
 
+        FullScreenHelper.setFullScreen(this);
 
         TextView signupRedirect = findViewById(R.id.signUpText);
         signupRedirect.setOnClickListener(new View.OnClickListener() {
@@ -85,44 +84,49 @@ public class SignIn extends Base {
         }
     }
 
-    public void checkUser (){
-        Log.d("SignIn", "Checking user...");
+    public void checkUser() {
         String userStudID = loginStudID.getText().toString().trim();
         String userPass = loginPass.getText().toString().trim();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        Query checkUserDB = reference.orderByChild("studID").equalTo(userStudID);
+        Query checkUserDB = reference.orderByChild("studentID").equalTo(userStudID);
 
         checkUserDB.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d("SignIn", "DataSnapshot exists: " + snapshot.exists());
-                if (snapshot.exists()){
-                    loginStudID.setError(null);
+                if (snapshot.exists()) {
+                    // User found
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        Log.d("SignIn", "User found: " + ds.getKey());
-                        String passwordFromDB = ds.child("userPass").getValue(String.class);
-                        if (passwordFromDB.equals(userPass)){
+                        String passwordFromDB = ds.child("password").getValue(String.class);
+                        if (passwordFromDB.equals(userPass)) {
+                            // Password matches, user authenticated
                             loginStudID.setError(null);
                             Intent intent = new Intent(SignIn.this, HomePage.class);
                             startActivity(intent);
-                            return; // Exit the loop after finding the user
+                            finish(); // Close the sign-in activity
+                            return;
                         } else {
+                            // Password does not match
                             loginPass.setError("Invalid Credentials!");
                             loginPass.requestFocus();
+                            return; // Exit the loop if the password doesn't match
                         }
                     }
-                } else{
+                } else {
+                    // User not found
                     loginStudID.setError("User does not exist");
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                // Handle database error
                 Log.e("SignIn", "Database error: " + error.getMessage());
+                // You may want to show an error message to the user here
             }
         });
     }
+
 
 
 //    public void checkUser (){
