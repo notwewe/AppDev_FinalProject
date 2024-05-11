@@ -6,11 +6,11 @@ import android.view.View;
 
 public class Base extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setFullScreen();
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setFullScreen();
+//    }
 
     protected void setFullScreen() {
         getWindow().getDecorView().setSystemUiVisibility(
