@@ -1,6 +1,5 @@
 package com.example.appdev_finalproject;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -32,9 +31,9 @@ public class SignUp extends Base {
 
 
         signupName = findViewById(R.id.nameEditText);
-        signupStudID = findViewById(R.id.studentIDEditText);
+        signupStudID = findViewById(R.id.loginstudentIDEditText);
         signupEmail = findViewById(R.id.emailEditText);
-        signupPass = findViewById(R.id.passwordEditText);
+        signupPass = findViewById(R.id.loginpasswordEditText);
         signupBtn = findViewById(R.id.signUpButton);
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +48,7 @@ public class SignUp extends Base {
                 String pass = signupPass.getText().toString();
 
                 UserHelper UH = new UserHelper(name, studID, email, pass);
-                reference.child(name).setValue(UH);
+                reference.child(studID).setValue(UH);
 
                 Toast.makeText(SignUp.this, "You have sign up successfully!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SignUp.this, SignIn.class);
