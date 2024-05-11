@@ -21,8 +21,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_up_bg_"
-        android:layout_width="411dp"
-        android:layout_height="564dp"
+        android:layout_width="412dp"
+        android:layout_height="608dp"
         android:background="@drawable/signincontent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,17 +84,17 @@
             app:layout_constraintTop_toBottomOf="@id/signInText" />
 
         <EditText
-            android:id="@+id/phoneEditText"
+            android:id="@+id/emailEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/num"
             android:drawablePadding="8dp"
             android:fontFamily="@font/poppins"
-            android:hint="Phone Number"
+            android:hint="Email Address"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:textColor="#868889"
@@ -111,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableLeft="@drawable/schoolid"
@@ -134,7 +134,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle"
             android:drawableStart="@drawable/password"
@@ -152,14 +152,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phoneEditText" />
+            app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+
 
         <Button
             android:id="@+id/signUpButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/gradient_button_background"
             android:fontFamily="@font/poppins"
@@ -171,6 +172,23 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+
+        <TextView
+            android:id="@+id/alreadyHaveAccountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="Already have an account? "
+            android:textColor="#868889"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signUpButton"
+            app:layout_constraintVertical_bias="0.228" />
 
         <TextView
             android:id="@+id/LoginText"
@@ -188,26 +206,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.031"
+            app:layout_constraintHorizontal_bias="0.042"
             app:layout_constraintStart_toEndOf="@+id/alreadyHaveAccountText"
-            app:layout_constraintTop_toBottomOf="@id/signUpButton" />
-
-
-        <TextView
-            android:id="@+id/alreadyHaveAccountText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/poppins"
-            android:text="Already have an account? "
-            android:textColor="#868889"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/signUpButton" />
+            app:layout_constraintTop_toBottomOf="@id/signUpButton"
+            app:layout_constraintVertical_bias="0.228" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
