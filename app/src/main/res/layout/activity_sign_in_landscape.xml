@@ -21,6 +21,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_in_bg_"
         android:layout_width="477dp"
+        android:layout_width="477dp"
         android:layout_height="413dp"
         android:background="@drawable/signincontent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,6 +105,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="268dp"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="268dp"
+            android:layout_marginTop="8dp"
             android:clickable="true"
             android:fontFamily="@font/poppins"
             android:text="Forgot password"
@@ -116,7 +119,9 @@
         <Button
             android:id="@+id/loginButton"
             android:layout_width="397dp"
+            android:layout_width="397dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/gradient_button_background"
