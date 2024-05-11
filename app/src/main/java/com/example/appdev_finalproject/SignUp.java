@@ -1,19 +1,22 @@
 package com.example.appdev_finalproject;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUp extends Base {
+public class SignUp extends AppCompatActivity {
 
     EditText signupName, signupStudID, signupEmail, signupPass;
     Button signupBtn;
@@ -32,10 +35,12 @@ public class SignUp extends Base {
 
 
         signupName = findViewById(R.id.nameEditText);
-        signupStudID = findViewById(R.id.studentIDEditText);
+        signupStudID = findViewById(R.id.studIDEditText);
         signupEmail = findViewById(R.id.emailEditText);
-        signupPass = findViewById(R.id.passwordEditText);
+        signupPass = findViewById(R.id.passEditText);
         signupBtn = findViewById(R.id.signUpButton);
+
+        FullScreenHelper.setFullScreen(this);
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,8 +53,8 @@ public class SignUp extends Base {
                 String email = signupEmail.getText().toString();
                 String pass = signupPass.getText().toString();
 
-                UserHelper UH = new UserHelper(name, studID, email, pass);
-                reference.child(name).setValue(UH);
+                UserHelper UH = new UserHelper(studID, name, email, pass);
+                reference.child(studID).setValue(UH);
 
                 Toast.makeText(SignUp.this, "You have sign up successfully!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SignUp.this, SignIn.class);
