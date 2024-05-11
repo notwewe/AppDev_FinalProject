@@ -3,9 +3,9 @@ package com.example.appdev_finalproject;
 public class UserHelper {
     String name, studentID, email, password;
 
-    public UserHelper(String name, String studentID, String email, String password) {
-        this.name = name;
+    public UserHelper(String studentID, String name, String email, String password) {
         this.studentID = studentID;
+        this.name = name;
         this.email = email;
         this.password = password;
     }
