@@ -66,7 +66,7 @@ public class HomePage extends AppCompatActivity {
         if (itemId == R.id.algorithm) {
             selectedFragment = new HomeFragment();
         } else if (itemId == R.id.course) {
-            selectedFragment = new CourseFragment();
+            selectedFragment = new OrderFragment();
         } else if (itemId == R.id.profile) {
             selectedFragment = new ProfileFragment();
         }  else if (itemId == R.id.navigation_bar) { // The navigation icon has the same ID as the home button
