@@ -30,12 +30,12 @@
                android:layout_marginRight="10dp"/>
 
            <ImageButton
+               android:id="@+id/btnCart"
                android:layout_width="50dp"
                android:layout_height="50dp"
-               android:background="@drawable/rounded_edittext"
-               app:srcCompat="@drawable/baseline_person_outline_24"
                android:layout_marginRight="10dp"
-               />
+               android:background="@drawable/rounded_edittext"
+               app:srcCompat="@drawable/baseline_person_outline_24" />
 
            <ImageButton
                android:layout_width="50dp"

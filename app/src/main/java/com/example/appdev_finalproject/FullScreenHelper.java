@@ -1,4 +1,3 @@
-// FullScreenHelper.java
 package com.example.appdev_finalproject;
 
 import android.app.Activity;

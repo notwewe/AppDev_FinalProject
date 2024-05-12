@@ -23,7 +23,7 @@ public class IntroSlideTitlePagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         String title = pages.get(position).getTitle();
         CharSequence formattedTitle = getFormattedTitle(title);
-        return TitleFragment.newInstance(formattedTitle);
+        return IntroTitleFragment.newInstance(formattedTitle);
     }
 
     @Override
