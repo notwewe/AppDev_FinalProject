@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class IntroSlideActivity extends Base {
+public class IntroSlideActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private ViewPager titleViewPager;
@@ -30,6 +32,8 @@ public class IntroSlideActivity extends Base {
         Button getStartedButton = findViewById(R.id.getStartedButton);
 
         titleTextView = findViewById(R.id.titleTextView);
+
+        //FullScreenHelper.setFullScreen(this);
 
         pages = new ArrayList<>();
         pages.add(new IntroSlidePage(R.drawable.imageslide1, "Welcome to \n CIT-U Wild Canteen"));

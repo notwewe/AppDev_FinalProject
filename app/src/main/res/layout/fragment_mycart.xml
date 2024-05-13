@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -35,9 +34,7 @@
                 android:text="My Cart"
                 android:textSize="30sp" />
 
-
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,15 +42,64 @@
             android:background="@drawable/rounded_pagecard"
             android:orientation="vertical">
 
+            <!-- Subtotal and Checkout Button -->
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cart_recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="141dp" />
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
+            <LinearLayout
+                android:id="@+id/subtotal_layout"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/subtotal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subtotal:"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/subtotal_amount_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="₱0.00"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/checkout_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Checkout" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/empty_cart_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/poppins"
+        android:text="Your cart is empty"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/cart_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/cart_icon"
@@ -69,31 +115,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/empty_cart_text"
+        android:id="@+id/add_smth_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:fontFamily="@font/poppins"
-        android:text="Your cart is empty"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cart_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/add_smth_text"
-        android:layout_width="229dp"
-        android:layout_height="74dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_bold"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="Want to add something?"
         android:textSize="24sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cart_icon" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,19 +53,17 @@
                 android:id="@+id/cart_item_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="₱20.00"
-                android:gravity="end"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="20sp"/>
+                android:gravity="end"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/cart_item_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 items"
-                android:gravity="end"
                 android:fontFamily="@font/poppins"
-                android:textSize="10sp"/>
+                android:gravity="end"
+                android:textSize="10sp" />
         </LinearLayout>
 
     </LinearLayout>
