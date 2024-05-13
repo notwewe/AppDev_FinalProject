@@ -8,12 +8,12 @@ import java.util.Date;
 public class OrderItem {
     private Drawable image;
     private String name;
-    private Date date;
+    private String date;
     private String price;
     private String quantity;
     private String state;
 
-    public OrderItem(Drawable image, String name, Date date, Float price, int quantity, String state) {
+    public OrderItem(Drawable image, String name, String date, Float price, int quantity, String state) {
         this.image = image;
         this.name = name;
         this.date = date;
@@ -54,11 +54,11 @@ public class OrderItem {
         this.state = state;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

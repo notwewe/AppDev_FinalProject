@@ -18,7 +18,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
     private ArrayList<OrderItem> orderItems;
     private String type;
 
-    public OrderAdapter(Context context, ArrayList<OrderItem> orderItems) {
+    public OrderAdapter(Context context, ArrayList<OrderItem> orderItems, String type) {
         this.context = context;
         this.orderItems = orderItems;
         this.type = type;
@@ -47,7 +47,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
     @NonNull
     @Override
     public OrderAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orderitem, parent, false);
+        View view;
+        if(type == "Completed"){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ordercompleted, parent, false);
+        } else if (type == "Active"){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orderitem, parent, false);
+        } else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ordercanceled, parent, false);
+        }
         return new ViewHolder(view);
     }
 

@@ -17,7 +17,7 @@
         android:title="Profile" />
 
     <item
-        android:id="@+id/navigation_bar"
+        android:id="@+id/navDrawer"
         android:icon="@drawable/reorder"
         android:title="Navigation Bar" />
 </menu>
