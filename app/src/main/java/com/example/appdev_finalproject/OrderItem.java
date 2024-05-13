@@ -11,13 +11,15 @@ public class OrderItem {
     private Date date;
     private String price;
     private String quantity;
+    private String state;
 
-    public OrderItem(Drawable image, String name, Date date, Float price, int quantity) {
+    public OrderItem(Drawable image, String name, Date date, Float price, int quantity, String state) {
         this.image = image;
         this.name = name;
         this.date = date;
         this.price = "₱"+ price;
         this.quantity = quantity + " items";
+        this.state = state;
     }
 
     public Drawable getImage() {
@@ -34,6 +36,22 @@ public class OrderItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public Date getDate() {

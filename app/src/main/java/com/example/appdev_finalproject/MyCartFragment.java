@@ -34,7 +34,7 @@ public class MyCartFragment extends Fragment {
         orderItems = new ArrayList<>();
 
         Drawable itemImage = getResources().getDrawable(R.drawable.chicken_adobo);
-        orderItems.add(new OrderItem(itemImage, "Sample Item", new Date(), 50.0f, 2));
+        orderItems.add(new OrderItem(itemImage, "Sample Item", new Date(), 50.0f, 2, "Cancelled"));
 
         mAdapter = new MyCartAdapter(getContext(), orderItems);
         recyclerView.setAdapter(mAdapter);

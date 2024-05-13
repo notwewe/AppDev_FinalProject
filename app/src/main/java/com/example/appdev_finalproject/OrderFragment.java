@@ -1,5 +1,6 @@
 package com.example.appdev_finalproject;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -11,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -82,18 +85,69 @@ public class OrderFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         recyclerView = (RecyclerView) view.findViewById(R.id.order_recyclerView);
+        Button btnActive = (Button) view.findViewById(R.id.btn_active);
+        Button btnCompleted = (Button) view.findViewById(R.id.btn_completed);
+        Button btnCancelled = (Button) view.findViewById(R.id.btn_cancelled);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         orderItems = new ArrayList<>();
         Date date = new Date();
 
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Chicken Adobo", new Date(), 100.00f, 1));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Ungart", new Date(), 100.00f, 1));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Botyok", new Date(), 100.00f, 1));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Chicken Adobo", new Date(), 100.00f, 1, "Cancelled"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Ungart", new Date(), 100.00f, 1, "Active"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Botyok", new Date(), 100.00f, 1, "Completed"));
 
         mAdapter = new OrderAdapter(this.getContext(), orderItems);
-        recyclerView.setAdapter(mAdapter);
+
+        btnActive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                ArrayList<OrderItem> ActiveItems = new ArrayList<>();
+                for(int i = 0; i < orderItems.size(); i++){
+                    if(orderItems.get(i).getState() == "Active"){
+                        ActiveItems.add(orderItems.get(i));
+                    }
+                }
+                mAdapter = new OrderAdapter(requireContext(), ActiveItems);
+                recyclerView.setAdapter(mAdapter);
+            }
+
+        });
+
+        btnCancelled.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<OrderItem> CancelledItems = new ArrayList<>();
+                for(int i = 0; i < orderItems.size(); i++){
+                    if(orderItems.get(i).getState() == "Cancelled"){
+                        CancelledItems.add(orderItems.get(i));
+                    }
+                }
+
+                mAdapter = new OrderAdapter(requireContext(), CancelledItems);
+                recyclerView.setAdapter(mAdapter);
+            }
+        });
+
+        btnCompleted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<OrderItem> CompletedItems = new ArrayList<>();
+                for(int i = 0; i < orderItems.size(); i++){
+                    if(orderItems.get(i).getState() == "Completed"){
+                        CompletedItems.add(orderItems.get(i));
+                    }
+                }
+
+
+                mAdapter = new OrderAdapter(requireContext(), CompletedItems);
+                recyclerView.setAdapter(mAdapter);
+            }
+
+
+        });
+
 
     }
 }

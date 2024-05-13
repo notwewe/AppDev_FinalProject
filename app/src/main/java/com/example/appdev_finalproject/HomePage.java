@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,31 +19,35 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.appdev_finalproject.databinding.ActivityHomePageBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomePage extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public Button btnCart;
-
+    ActivityHomePageBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        binding = ActivityHomePageBinding.inflate(getLayoutInflater());
+        View root = binding.getRoot();
+        setContentView(root);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        // as soon as the application opens the first
-        // fragment should be shown to the user
-        // in this case it is algorithm fragment
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        assert navHostFragment != null;
+        NavController navController = navHostFragment.getNavController();
+
+        NavigationUI.setupWithNavController(bottomNav, navController);
 
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
-
+//
         // pass the Open and Close toggle for the drawer layout listener
         // to toggle the button
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -65,22 +73,23 @@ public class HomePage extends AppCompatActivity {
         // by using there id.
         Fragment selectedFragment = null;
         int itemId = item.getItemId();
-        if (itemId == R.id.algorithm) {
-            selectedFragment = new HomeFragment();
-        } else if (itemId == R.id.course) {
-            selectedFragment = new OrderFragment();
-        } else if (itemId == R.id.profile) {
-            selectedFragment = new ProfileFragment();
-        }  else if (itemId == R.id.navigation_bar) { // The navigation icon has the same ID as the home button
+//        if (itemId == R.id.algorithm) {
+//            selectedFragment = new HomeFragment();
+//        } else if (itemId == R.id.course) {
+//            selectedFragment = new OrderFragment();
+//        } else if (itemId == R.id.profile) {
+//            selectedFragment = new ProfileFragment();
+//        }  else
+        if (itemId == R.id.navigation_bar) { // The navigation icon has the same ID as the home button
             drawerLayout.openDrawer(Gravity.RIGHT);
             Log.println(Log.DEBUG, "Drawer", "Opened");
 
         }
         // It will help to replace the
         // one fragment to other.
-        if (selectedFragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-        }
+//        if (selectedFragment != null) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+//        }
         return true;
     };
 

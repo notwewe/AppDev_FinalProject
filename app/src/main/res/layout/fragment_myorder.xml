@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".OrderFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -53,19 +53,23 @@
 
                 android:padding="10dp">
                 <Button
+                    android:id="@+id/btn_active"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="@color/white"
                     android:text="Active">
                 </Button>
 
                 <Button
+                    android:id="@+id/btn_completed"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Completed">
                 </Button>
                 <Button
+                    android:id="@+id/btn_cancelled"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

@@ -16,11 +16,15 @@ import java.util.ArrayList;
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
     private Context context;
     private ArrayList<OrderItem> orderItems;
+    private String type;
 
     public OrderAdapter(Context context, ArrayList<OrderItem> orderItems) {
         this.context = context;
         this.orderItems = orderItems;
+        this.type = type;
     }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView orderItemImage;
         TextView orderItemName;
@@ -56,6 +60,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
         holder.orderItemPrice.setText(orderItem.getPrice().toString());
         holder.orderItemQuantity.setText(orderItem.getQuantity());
     }
+
+
 
     @Override
     public int getItemCount() {
