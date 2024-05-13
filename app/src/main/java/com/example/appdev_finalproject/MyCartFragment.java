@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,7 +35,12 @@ public class MyCartFragment extends Fragment {
         orderItems = new ArrayList<>();
 
         Drawable itemImage = getResources().getDrawable(R.drawable.chicken_adobo);
-        orderItems.add(new OrderItem(itemImage, "Sample Item", new Date(), 50.0f, 2, "Cancelled"));
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, hh:mm a");
+        String formattedDate = sdf.format(new Date());
+
+
+        orderItems.add(new OrderItem(itemImage, "Sample Item", formattedDate, 50.0f, 2, "Cancelled"));
 
         mAdapter = new MyCartAdapter(getContext(), orderItems);
         recyclerView.setAdapter(mAdapter);

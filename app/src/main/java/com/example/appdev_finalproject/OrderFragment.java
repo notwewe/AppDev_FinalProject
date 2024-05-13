@@ -1,10 +1,13 @@
 package com.example.appdev_finalproject;
 
 import android.content.Context;
+import android.graphics.BlendMode;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -85,31 +89,52 @@ public class OrderFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         recyclerView = (RecyclerView) view.findViewById(R.id.order_recyclerView);
+
         Button btnActive = (Button) view.findViewById(R.id.btn_active);
         Button btnCompleted = (Button) view.findViewById(R.id.btn_completed);
         Button btnCancelled = (Button) view.findViewById(R.id.btn_cancelled);
+
+
+        btnActive.getBackground().setColorFilter(ContextCompat.getColor(this.getContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
+        btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(this.getContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+        btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(this.getContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         orderItems = new ArrayList<>();
         Date date = new Date();
 
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Chicken Adobo", new Date(), 100.00f, 1, "Cancelled"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Ungart", new Date(), 100.00f, 1, "Active"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Botyok", new Date(), 100.00f, 1, "Completed"));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, hh:mm a");
+        String formattedDate = sdf.format(date);
 
-        mAdapter = new OrderAdapter(this.getContext(), orderItems);
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Ungart", formattedDate, 100.00f, 1, "Active"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Botyok", formattedDate, 100.00f, 1, "Completed"));
+
+        ArrayList<OrderItem> ActiveItems = new ArrayList<>();
+        for(int i = 0; i < orderItems.size(); i++){
+            if(orderItems.get(i).getState() == "Active"){
+                ActiveItems.add(orderItems.get(i));
+            }
+        }
+        mAdapter = new OrderAdapter(requireContext(), ActiveItems, "Active");
+        recyclerView.setAdapter(mAdapter);
 
         btnActive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+                btnActive.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
+                btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
                 ArrayList<OrderItem> ActiveItems = new ArrayList<>();
                 for(int i = 0; i < orderItems.size(); i++){
                     if(orderItems.get(i).getState() == "Active"){
                         ActiveItems.add(orderItems.get(i));
                     }
                 }
-                mAdapter = new OrderAdapter(requireContext(), ActiveItems);
+                mAdapter = new OrderAdapter(requireContext(), ActiveItems, "Active");
                 recyclerView.setAdapter(mAdapter);
             }
 
@@ -118,6 +143,9 @@ public class OrderFragment extends Fragment {
         btnCancelled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+                btnActive.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+                btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
                 ArrayList<OrderItem> CancelledItems = new ArrayList<>();
                 for(int i = 0; i < orderItems.size(); i++){
                     if(orderItems.get(i).getState() == "Cancelled"){
@@ -125,7 +153,7 @@ public class OrderFragment extends Fragment {
                     }
                 }
 
-                mAdapter = new OrderAdapter(requireContext(), CancelledItems);
+                mAdapter = new OrderAdapter(requireContext(), CancelledItems, "Cancelled");
                 recyclerView.setAdapter(mAdapter);
             }
         });
@@ -133,6 +161,9 @@ public class OrderFragment extends Fragment {
         btnCompleted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
+                btnActive.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+                btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
                 ArrayList<OrderItem> CompletedItems = new ArrayList<>();
                 for(int i = 0; i < orderItems.size(); i++){
                     if(orderItems.get(i).getState() == "Completed"){
@@ -141,7 +172,7 @@ public class OrderFragment extends Fragment {
                 }
 
 
-                mAdapter = new OrderAdapter(requireContext(), CompletedItems);
+                mAdapter = new OrderAdapter(requireContext(), CompletedItems ,"Completed");
                 recyclerView.setAdapter(mAdapter);
             }
 
