@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ public class MyCartFragment extends Fragment {
     private View cartIcon;
     private TextView addSomethingText;
     private TextView emptyCartText;
+    private LinearLayout subtotal_layout;
 
     private List<CartItem> cartItems;
 
@@ -38,6 +40,7 @@ public class MyCartFragment extends Fragment {
         cartIcon = view.findViewById(R.id.cart_icon);
         addSomethingText = view.findViewById(R.id.add_smth_text);
         emptyCartText = view.findViewById(R.id.empty_cart_text);
+        subtotal_layout = view.findViewById(R.id.subtotal_layout);
 
         cartItems = new ArrayList<>();
         // Add sample cart items
@@ -79,12 +82,13 @@ public class MyCartFragment extends Fragment {
 
     private void updateVisibility() {
         if (cartItems.isEmpty()) {
-            cartRecyclerView.setVisibility(View.GONE);
-            cartIcon.setVisibility(View.GONE);
+            subtotal_layout.setVisibility(View.GONE);
+            //cartRecyclerView.setVisibility(View.VISIBLE);
+            cartIcon.setVisibility(View.VISIBLE);
             addSomethingText.setVisibility(View.VISIBLE);
             emptyCartText.setVisibility(View.VISIBLE);
         } else {
-            cartRecyclerView.setVisibility(View.VISIBLE);
+            //cartRecyclerView.setVisibility(View.VISIBLE);
             cartIcon.setVisibility(View.GONE);
             addSomethingText.setVisibility(View.GONE);
             emptyCartText.setVisibility(View.GONE);

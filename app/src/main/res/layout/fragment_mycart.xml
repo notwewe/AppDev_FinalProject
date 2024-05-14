@@ -79,8 +79,8 @@
 
                 <Button
                     android:id="@+id/checkout_button"
-                    android:layout_width="142dp"
-                    android:layout_height="37dp"
+                    android:layout_width="143dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/checkoutbtn"
                     android:fontFamily="@font/league_med"
