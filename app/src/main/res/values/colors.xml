@@ -12,6 +12,7 @@
     <color name="maroon">#800000</color>
     <color name="lightYellow">#F3E9B5</color>
     <color name="redMaroon">#8B1F28</color>
+    <color name="red2">#E83434</color>
     <drawable name="screen_background_holo_light">#fff3f3f3</drawable>
 
 </resources>

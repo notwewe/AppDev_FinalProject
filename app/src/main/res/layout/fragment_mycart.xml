@@ -62,8 +62,9 @@
                     android:id="@+id/subtotal_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/league_med"
                     android:text="Subtotal:"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -71,16 +72,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:fontFamily="@font/league_med"
                     android:text="₱0.00"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/checkout_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="142dp"
+                    android:layout_height="37dp"
                     android:layout_marginStart="16dp"
-                    android:text="Checkout" />
+                    android:background="@drawable/checkoutbtn"
+                    android:fontFamily="@font/league_med"
+                    android:text="Checkout"
+                    android:textAllCaps="false"
+                    android:textColor="@color/redMaroon"
+                    android:textSize="16sp" /> <!-- This attribute prevents the text from being all caps -->
+                android:textColor="@color/redMaroon"
+                android:textSize="12sp" /> <!-- Adjusted text size -->
 
             </LinearLayout>
 

@@ -61,6 +61,7 @@ public class MyCartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Handle checkout button click
+
             }
         });
 
