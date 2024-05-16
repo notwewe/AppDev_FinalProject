@@ -17,5 +17,10 @@
         android:name="com.example.appdev_finalproject.OrderFragment"
         android:label="fragment_myorder"
         tools:layout="@layout/fragment_myorder" />
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.appdev_finalproject.CheckoutFragment"
+        android:label="CheckoutFragment"
+        tools:layout="@layout/fragment_checkout"/>
 
 </navigation>

@@ -18,7 +18,7 @@ public class OrderItem {
         this.name = name;
         this.date = date;
         this.price = "₱"+ price;
-        this.quantity = quantity + " items";
+        this.quantity = quantity + "";
         this.state = state;
     }
 

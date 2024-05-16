@@ -119,6 +119,7 @@ public class OrderFragment extends Fragment {
                 ActiveItems.add(orderItems.get(i));
             }
         }
+
         mAdapter = new OrderAdapter(requireContext(), ActiveItems, "Active");
         recyclerView.setAdapter(mAdapter);
 

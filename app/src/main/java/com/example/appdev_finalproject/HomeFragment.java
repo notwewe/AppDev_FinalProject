@@ -63,14 +63,14 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Add btnCart image button
-        ImageButton btnCart = view.findViewById(R.id.btnCart);
-        btnCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to the cart fragment
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyCartFragment()).commit();
-            }
-        });
+//        ImageButton btnCart = view.findViewById(R.id.btnCart);
+//        btnCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Navigate to the cart fragment
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyCartFragment()).commit();
+//            }
+//        });
 
         return view;
     }
