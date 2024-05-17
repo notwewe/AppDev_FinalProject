@@ -41,7 +41,6 @@ public class HomePage extends AppCompatActivity {
         setContentView(root);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setOnItemSelectedListener(navListener);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
         assert navHostFragment != null;
@@ -49,78 +48,8 @@ public class HomePage extends AppCompatActivity {
 
         NavigationUI.setupWithNavController(bottomNav, navController);
 
-        // as soon as the application opens the first
-        // fragment should be shown to the user
-        // in this case it is algorithm fragment
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-
-        // drawer layout instance to toggle the menu icon to open
-        // drawer and back button to close drawer
-        drawerLayout = findViewById(R.id.my_drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
-//
-        // pass the Open and Close toggle for the drawer layout listener
-        // to toggle the button
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-
-
-
-        // Set the touch listener on the main content view
-        findViewById(R.id.fragment_container).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    return true;
-                }
-                return false;
-            }
-        });
-
-
-
-
-
 
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.navDrawer) {
-            drawerLayout.openDrawer(Gravity.RIGHT);
-            Log.println(Log.DEBUG, "Drawer", "Opened");
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private final NavigationBarView.OnItemSelectedListener navListener = item -> {
-        // By using switch we can easily get
-        // the selected fragment
-        // by using there id.
-        Fragment selectedFragment = null;
-        int itemId = item.getItemId();
-//        if (itemId == R.id.algorithm) {
-//            selectedFragment = new HomeFragment();
-//        } else if (itemId == R.id.course) {
-//            selectedFragment = new OrderFragment();
-//        } else if (itemId == R.id.profile) {
-//            selectedFragment = new ProfileFragment();
-//        }  else
-        if (itemId == R.id.navDrawer) { // The navigation icon has the same ID as the home button
-            drawerLayout.openDrawer(Gravity.RIGHT);
-            Log.println(Log.DEBUG, "Drawer", "Opened");
-        }
-
-        Log.println(Log.DEBUG, "Drawer", "Opened");
-        return true;
-    };
 
 
 }

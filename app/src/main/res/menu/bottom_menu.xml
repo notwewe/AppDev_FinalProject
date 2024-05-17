@@ -4,20 +4,20 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/baseline_home_24"
-        android:title="Algorithm" />
+        android:title="Home" />
 
     <item
         android:id="@+id/orderFragment"
-        android:icon="@drawable/baseline_bookmark_border_24"
-        android:title="Course" />
+        android:icon="@drawable/orders"
+        android:title="Orders" />
 
     <item
-        android:id="@+id/checkoutFragment"
-        android:icon="@drawable/baseline_person_outline_24"
+        android:id="@+id/mycartFragment"
+        android:icon="@drawable/cart"
+        android:title="Cart" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/account"
         android:title="Profile" />
-
-    <item
-        android:id="@+id/navDrawer"
-        android:icon="@drawable/reorder"
-        android:title="Navigation Bar" />
 </menu>

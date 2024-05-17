@@ -2,12 +2,17 @@ package com.example.appdev_finalproject;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,15 +67,107 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Add btnCart image button
-//        ImageButton btnCart = view.findViewById(R.id.btnCart);
-//        btnCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Navigate to the cart fragment
-//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyCartFragment()).commit();
-//            }
-//        });
+        // Initialize Clickables
+        LinearLayout btnDessert = view.findViewById(R.id.btnDessert);
+        LinearLayout btnSnacks = view.findViewById(R.id.btnSnacks);
+        LinearLayout btnMeal = view.findViewById(R.id.btnMeal);
+        LinearLayout btnVegan = view.findViewById(R.id.btnVegan);
+        LinearLayout btnDrinks = view.findViewById(R.id.btnDrinks);
+        CardView bestSeller_1 = view.findViewById(R.id.bestSeller_1);
+
+
+        // Initialize OnClickListeners
+        btnDessert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the product fragment
+                // Create a Bundle and put your parameters into it
+                Bundle bundle = new Bundle();
+                bundle.putString("GenreTitle", "Dessert");
+                bundle.putString("GenreSubtitle", "Sweet Treats!");
+
+
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.productFragment, bundle);
+            }
+        });
+
+        btnVegan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the product fragment
+                // Create a Bundle and put your parameters into it
+                Bundle bundle = new Bundle();
+                bundle.putString("GenreTitle", "Vegan");
+                bundle.putString("GenreSubtitle", "Healthy!");
+
+
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.productFragment, bundle);
+            }
+        });
+
+        btnSnacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the product fragment
+                // Create a Bundle and put your parameters into it
+                Bundle bundle = new Bundle();
+                bundle.putString("GenreTitle", "Snacks");
+                bundle.putString("GenreSubtitle", "Crunchy!");
+
+
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.productFragment, bundle);
+            }
+        });
+
+        btnMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the product fragment
+                // Create a Bundle and put your parameters into it
+                Bundle bundle = new Bundle();
+                bundle.putString("GenreTitle", "Meal");
+                bundle.putString("GenreSubtitle", "Filling!");
+
+
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.productFragment, bundle);
+            }
+        });
+
+        btnDrinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the product fragment
+                // Create a Bundle and put your parameters into it
+                Bundle bundle = new Bundle();
+                bundle.putString("GenreTitle", "Drinks");
+                bundle.putString("GenreSubtitle", "Refreshing!");
+
+
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.productFragment, bundle);
+            }
+        });
+
+
+        bestSeller_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the product fragment
+                // Create a Bundle and put your parameters into it
+                Bundle bundle = new Bundle();
+                bundle.putString("Name", "Chicken Joy");
+                bundle.putString("Rating", "5.0");
+                bundle.putString("Description", "Delicious!");
+                bundle.putString("Price", "$5.00");
+
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.foodFragment, bundle);
+            }
+        });
 
         return view;
     }

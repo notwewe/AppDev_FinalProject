@@ -17,10 +17,38 @@
         android:name="com.example.appdev_finalproject.OrderFragment"
         android:label="fragment_myorder"
         tools:layout="@layout/fragment_myorder" />
+
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.example.appdev_finalproject.CheckoutFragment"
         android:label="CheckoutFragment"
-        tools:layout="@layout/fragment_checkout"/>
+        tools:layout="@layout/fragment_product_page"/>
+
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.example.appdev_finalproject.FoodFragment"
+        android:label="FoodFragment"
+        tools:layout="@layout/fragment_food"/>
+
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.appdev_finalproject.ProductFragment"
+        android:label="FoodFragment"
+        tools:layout="@layout/fragment_product_page"/>
+
+    <fragment
+        android:id="@+id/mycartFragment"
+        android:name="com.example.appdev_finalproject.MyCartFragment"
+        android:label="MyCartFragment"
+        tools:layout="@layout/fragment_mycart"/>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.appdev_finalproject.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+
+
+
 
 </navigation>

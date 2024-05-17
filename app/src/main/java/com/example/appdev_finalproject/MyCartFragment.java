@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +29,7 @@ public class MyCartFragment extends Fragment {
     private TextView addSomethingText;
     private TextView emptyCartText;
     private LinearLayout subtotal_layout;
+
 
     private List<CartItem> cartItems;
 
@@ -64,7 +67,13 @@ public class MyCartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Handle checkout button click
+                Bundle bundle = new Bundle();
+                bundle.putString("GenreTitle", "Drinks");
+                bundle.putString("GenreSubtitle", "Refreshing!");
 
+
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.productFragment, bundle);
             }
         });
 
