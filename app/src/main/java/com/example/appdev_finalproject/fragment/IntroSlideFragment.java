@@ -1,13 +1,14 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
+
+import com.example.appdev_finalproject.R;
 
 public class IntroSlideFragment extends Fragment {
 

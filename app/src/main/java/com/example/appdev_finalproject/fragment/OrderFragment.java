@@ -1,9 +1,6 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.fragment;
 
-import android.content.Context;
-import android.graphics.BlendMode;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -17,7 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.lang.reflect.Array;
+import com.example.appdev_finalproject.R;
+import com.example.appdev_finalproject.adapter.OrderAdapter;
+import com.example.appdev_finalproject.model.OrderItem;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

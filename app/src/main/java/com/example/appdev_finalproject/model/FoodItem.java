@@ -1,4 +1,4 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.model;
 
 public class FoodItem {
     private String name;

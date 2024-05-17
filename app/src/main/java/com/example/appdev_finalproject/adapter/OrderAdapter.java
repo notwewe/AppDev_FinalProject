@@ -1,4 +1,4 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.appdev_finalproject.R;
+import com.example.appdev_finalproject.model.OrderItem;
 
 import java.util.ArrayList;
 

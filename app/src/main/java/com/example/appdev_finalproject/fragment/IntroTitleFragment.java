@@ -1,4 +1,4 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.appdev_finalproject.R;
 
 public class IntroTitleFragment extends Fragment {
 

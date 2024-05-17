@@ -1,19 +1,27 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.fragment;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.appdev_finalproject.R;
+import com.example.appdev_finalproject.adapter.MyCartAdapter;
+import com.example.appdev_finalproject.model.CartItem;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -44,6 +52,15 @@ public class MyCartFragment extends Fragment {
         addSomethingText = view.findViewById(R.id.add_smth_text);
         emptyCartText = view.findViewById(R.id.empty_cart_text);
         subtotal_layout = view.findViewById(R.id.subtotal_layout);
+        //get the spinner from the xml.
+        Spinner dropdown = view.findViewById(R.id.spinner_mycart);
+        //create a list of items for the spinner.
+        String[] items = new String[]{"Delivery", "Pickup"};
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, items);
+        //set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
 
         cartItems = new ArrayList<>();
         // Add sample cart items
@@ -73,7 +90,7 @@ public class MyCartFragment extends Fragment {
 
 
                 NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.productFragment, bundle);
+                navController.navigate(R.id.checkoutFragment, bundle);
             }
         });
 
@@ -103,4 +120,7 @@ public class MyCartFragment extends Fragment {
             emptyCartText.setVisibility(View.GONE);
         }
     }
+
+
+
 }

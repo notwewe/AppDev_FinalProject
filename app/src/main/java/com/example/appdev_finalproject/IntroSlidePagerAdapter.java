@@ -3,6 +3,9 @@ package com.example.appdev_finalproject;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.example.appdev_finalproject.fragment.IntroSlideFragment;
+
 import java.util.List;
 
 public class IntroSlidePagerAdapter extends FragmentStatePagerAdapter {

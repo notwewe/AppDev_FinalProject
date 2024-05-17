@@ -1,4 +1,4 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.fragment;
 
 import android.os.Bundle;
 
@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import com.example.appdev_finalproject.R;
+import com.example.appdev_finalproject.adapter.CheckoutAdapter;
+import com.example.appdev_finalproject.model.OrderItem;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

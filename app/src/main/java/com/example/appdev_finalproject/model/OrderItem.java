@@ -1,4 +1,4 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.model;
 
 import android.graphics.drawable.Drawable;
 import android.media.Image;

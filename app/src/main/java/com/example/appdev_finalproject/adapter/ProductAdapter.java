@@ -1,4 +1,4 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.appdev_finalproject.R;
+import com.example.appdev_finalproject.model.FoodItem;
 
 import java.util.List;
 

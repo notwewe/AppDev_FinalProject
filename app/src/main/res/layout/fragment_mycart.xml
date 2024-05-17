@@ -4,7 +4,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyCartFragment">
+    tools:context=".fragment.MyCartFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -48,50 +48,78 @@
                 android:id="@+id/cart_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_weight="3" />
 
             <LinearLayout
-                android:id="@+id/subtotal_layout"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:gravity="end"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/subtotal_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/league_med"
-                    android:text="Subtotal:"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="bottom|start"
+                    android:text="Method of Claiming"
+                    android:textColor="@color/black"
+                    android:textSize="18sp">
 
-                <TextView
-                    android:id="@+id/subtotal_amount_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="@font/league_med"
-                    android:text="₱0.00"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                </TextView>
 
-                <Button
-                    android:id="@+id/checkout_button"
-                    android:layout_width="143dp"
+                <Spinner
+                    android:id="@+id/spinner_mycart"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+                <LinearLayout
+                    android:id="@+id/subtotal_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:background="@drawable/checkoutbtn"
-                    android:fontFamily="@font/league_med"
-                    android:text="Checkout"
-                    android:textAllCaps="false"
-                    android:textColor="@color/redMaroon"
-                    android:textSize="16sp" /> <!-- This attribute prevents the text from being all caps -->
-                android:textColor="@color/redMaroon"
-                android:textSize="12sp" /> <!-- Adjusted text size -->
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/subtotal_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/league_med"
+                        android:text="Subtotal:"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/subtotal_amount_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/league_med"
+                        android:text="₱0.00"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/checkout_button"
+                        android:layout_width="143dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:background="@drawable/checkoutbtn"
+                        android:fontFamily="@font/league_med"
+                        android:text="Checkout"
+                        android:textAllCaps="false"
+                        android:textColor="@color/redMaroon"
+                        android:textSize="16sp" /> <!-- This attribute prevents the text from being all caps -->
+
+                </LinearLayout>
 
             </LinearLayout>
+
 
         </LinearLayout>
     </LinearLayout>

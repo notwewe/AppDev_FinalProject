@@ -1,4 +1,4 @@
-package com.example.appdev_finalproject;
+package com.example.appdev_finalproject.fragment;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import com.example.appdev_finalproject.R;
 
 /**
  * A simple {@link Fragment} subclass.
