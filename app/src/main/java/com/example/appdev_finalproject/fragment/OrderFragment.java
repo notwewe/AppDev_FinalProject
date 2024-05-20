@@ -34,8 +34,6 @@ public class OrderFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -74,30 +72,26 @@ public class OrderFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_myorder, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        recyclerView = (RecyclerView) view.findViewById(R.id.order_recyclerView);
+        recyclerView = view.findViewById(R.id.order_recyclerView);
 
-        Button btnActive = (Button) view.findViewById(R.id.btn_active);
-        Button btnCompleted = (Button) view.findViewById(R.id.btn_completed);
-        Button btnCancelled = (Button) view.findViewById(R.id.btn_cancelled);
+        Button btnActive = view.findViewById(R.id.btn_active);
+        Button btnCompleted = view.findViewById(R.id.btn_completed);
+        Button btnCancelled = view.findViewById(R.id.btn_cancelled);
 
-
-        btnActive.getBackground().setColorFilter(ContextCompat.getColor(this.getContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
-        btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(this.getContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
-        btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(this.getContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+        btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
+        btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
+        btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -108,14 +102,14 @@ public class OrderFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, hh:mm a");
         String formattedDate = sdf.format(date);
 
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Ungart", formattedDate, 100.00f, 1, "Active"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo),"Botyok", formattedDate, 100.00f, 1, "Completed"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Ungart", formattedDate, 100.00f, 1, "Active"));
+        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Botyok", formattedDate, 100.00f, 1, "Completed"));
 
         ArrayList<OrderItem> ActiveItems = new ArrayList<>();
-        for(int i = 0; i < orderItems.size(); i++){
-            if(orderItems.get(i).getState() == "Active"){
+        for (int i = 0; i < orderItems.size(); i++) {
+            if (orderItems.get(i).getState().equals("Active")) {
                 ActiveItems.add(orderItems.get(i));
             }
         }
@@ -125,31 +119,30 @@ public class OrderFragment extends Fragment {
 
         btnActive.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
-                btnActive.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
-                btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+            public void onClick(View v) {
+                btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
+                btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
+                btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
                 ArrayList<OrderItem> ActiveItems = new ArrayList<>();
-                for(int i = 0; i < orderItems.size(); i++){
-                    if(orderItems.get(i).getState() == "Active"){
+                for (int i = 0; i < orderItems.size(); i++) {
+                    if (orderItems.get(i).getState().equals("Active")) {
                         ActiveItems.add(orderItems.get(i));
                     }
                 }
                 mAdapter = new OrderAdapter(requireContext(), ActiveItems, "Active");
                 recyclerView.setAdapter(mAdapter);
             }
-
         });
 
         btnCancelled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
-                btnActive.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
-                btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
+                btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
+                btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
+                btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
                 ArrayList<OrderItem> CancelledItems = new ArrayList<>();
-                for(int i = 0; i < orderItems.size(); i++){
-                    if(orderItems.get(i).getState() == "Cancelled"){
+                for (int i = 0; i < orderItems.size(); i++) {
+                    if (orderItems.get(i).getState().equals("Cancelled")) {
                         CancelledItems.add(orderItems.get(i));
                     }
                 }
@@ -162,24 +155,19 @@ public class OrderFragment extends Fragment {
         btnCompleted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnCompleted.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.maroon), PorterDuff.Mode.MULTIPLY);
-                btnActive.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
-                btnCancelled.getBackground().setColorFilter(ContextCompat.getColor(requireContext(), R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+                btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
+                btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
+                btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
                 ArrayList<OrderItem> CompletedItems = new ArrayList<>();
-                for(int i = 0; i < orderItems.size(); i++){
-                    if(orderItems.get(i).getState() == "Completed"){
+                for (int i = 0; i < orderItems.size(); i++) {
+                    if (orderItems.get(i).getState().equals("Completed")) {
                         CompletedItems.add(orderItems.get(i));
                     }
                 }
 
-
-                mAdapter = new OrderAdapter(requireContext(), CompletedItems ,"Completed");
+                mAdapter = new OrderAdapter(requireContext(), CompletedItems, "Completed");
                 recyclerView.setAdapter(mAdapter);
             }
-
-
         });
-
-
     }
 }

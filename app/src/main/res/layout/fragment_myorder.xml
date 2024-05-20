@@ -52,28 +52,39 @@
                 android:orientation="horizontal"
 
                 android:padding="10dp">
+
                 <Button
                     android:id="@+id/btn_active"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:text="Active">
-                </Button>
+                    android:background="@drawable/shape"
+                    android:fontFamily="@font/league_med"
+                    android:text="Active"></Button>
 
                 <Button
                     android:id="@+id/btn_completed"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:text="Completed">
-                </Button>
+                    android:background="@drawable/shape2"
+                    android:fontFamily="@font/league_med"
+                    android:text="Completed"></Button>
+
                 <Button
                     android:id="@+id/btn_cancelled"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:text="Cancelled">
-                </Button>
+                    android:background="@drawable/shape2"
+                    android:fontFamily="@font/league_med"
+                    android:text="Cancelled"></Button>
 
 
             </LinearLayout>
