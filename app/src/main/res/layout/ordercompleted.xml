@@ -72,14 +72,16 @@
                         android:orientation="vertical"
                         android:layout_gravity="end"
                         android:padding="5dp">
+
                         <TextView
                             android:id="@+id/orderitem_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="₱20.00"
-                            android:gravity="end"
                             android:fontFamily="@font/poppins_bold"
-                            android:textSize="20sp"/>
+                            android:gravity="end"
+                            android:text="₱20.00"
+                            android:textColor="@color/redMaroon"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/orderitem_quantity"
@@ -104,15 +106,26 @@
                     android:id="@+id/orderitem_review"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:text="Review"/>
+                    android:background="@drawable/shape"
+                    android:fontFamily="@font/league_med"
+                    android:text="Review"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/orderitem_orderagain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:text="Order again"/>
+                    android:background="@drawable/shape2"
+                    android:fontFamily="@font/league_med"
+                    android:text="Order again"
+                    android:textColor="@color/maroon" />
 
 
             </LinearLayout>

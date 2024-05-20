@@ -71,7 +71,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
+                    android:layout_height="30dp"
                     android:layout_weight="0" />
 
                 <LinearLayout
@@ -82,12 +82,15 @@
 
                     <TextView
                         android:id="@+id/food_item_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="142dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:text="$20.00"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center|left"
+                        android:text="₱20.00"
+                        android:textColor="@color/redMaroon"
+                        android:textSize="24sp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -101,24 +104,28 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:layout_weight="0"
+                            android:background="@drawable/shape"
                             android:text="+"
                             android:textColor="@color/white"
                             android:textSize="20sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="36dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
 
                             android:layout_weight="0"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
                             android:text="1"
-                            android:textSize="20sp" />
+                            android:textSize="24sp" />
 
                         <Button
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:layout_weight="0"
+                            android:background="@drawable/shape"
                             android:text="-"
                             android:textColor="@color/white"
                             android:textSize="20sp" />
@@ -127,7 +134,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0" />
 
                 <TextView
@@ -146,10 +153,10 @@
                     android:layout_marginTop="-15dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="0"
-                    android:drawableLeft="@drawable/baseline_star_outline_24"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="4.0"
+                    android:textAlignment="textEnd"
                     android:textSize="20sp" />
 
                 <Space
@@ -172,12 +179,17 @@
                     android:layout_weight="0" />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|bottom"
+                    android:layout_width="370dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="bottom|center|end"
                     android:layout_weight="0"
-                    android:drawableLeft="@drawable/baseline_star_outline_24"
-                    android:text="Add To Cart" />
+                    android:background="@drawable/shape"
+                    android:fontFamily="@font/poppins"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:text="Add To Cart"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="match_parent"

@@ -60,10 +60,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="bottom|start"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="bottom|center"
                     android:text="Method of Claiming"
-                    android:textColor="@color/black"
                     android:textSize="18sp">
 
                 </TextView>
@@ -89,8 +88,10 @@
                         android:id="@+id/subtotal_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="2.5dp"
                         android:fontFamily="@font/league_med"
                         android:text="Subtotal:"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -99,8 +100,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
+                        android:layout_marginTop="2.5dp"
                         android:fontFamily="@font/league_med"
                         android:text="₱0.00"
+                        android:textColor="@color/redMaroon"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 

@@ -47,10 +47,9 @@
             android:orientation="horizontal">
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="611dp"
                 android:layout_margin="10dp"
                 android:orientation="vertical"
                 android:paddingTop="20dp">
@@ -73,13 +72,13 @@
                     android:id="@+id/add_smth_text"
                     android:layout_width="229dp"
                     android:layout_height="74dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/obsidian"
                     android:foregroundGravity="center"
-                    android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Chicken Curry"
+                    android:textColor="@color/obsidian"
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@+id/food_imageReview" />
 
@@ -88,14 +87,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textColor="@color/obsidian"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/poppins"
-                    android:text="We'd love to know what you think of your dish."
-                    android:textSize="18sp"
+                    android:gravity="center"
                     android:paddingLeft="50dp"
                     android:paddingRight="50dp"
+                    android:text="We'd love to know what you think of your dish."
+                    android:textColor="@color/obsidian"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/food_imageReview"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -107,10 +106,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:numStars="5"
-                    android:stepSize=".5"
+                    android:progressBackgroundTint="@color/gray"
                     android:scaleX="1"
                     android:scaleY="1"
-                    android:progressBackgroundTint="@color/gray">
+                    android:stepSize=".5">
 
                 </RatingBar>
 
@@ -119,12 +118,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textColor="@color/obsidian"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins"
+                    android:gravity="center"
                     android:text="Leave us your comment!"
-                    android:layout_marginTop="10dp"
+                    android:textColor="@color/obsidian"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/food_imageReview" />
 
@@ -132,19 +131,14 @@
                     android:id="@+id/ET_Feedback"
                     android:layout_width="300dp"
                     android:layout_height="90dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/lightYellow"
                     android:inputType="textMultiLine"
                     android:lines="8"
                     android:maxLines="10"
                     android:minLines="6"
-                    android:background="@color/lightYellow"
                     android:scrollbars="vertical" />
-
-
-
-
-
 
 
                 <LinearLayout
@@ -158,23 +152,21 @@
                         android:id="@+id/btn_CancelFeedback"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
+                        android:background="@drawable/shape2"
                         android:text="Cancel"
-                        android:textColor="@color/redMaroon"
                         android:textAllCaps="false"
-                        android:background="@drawable/shape2"/>
+                        android:textColor="@color/redMaroon" />
 
                     <Button
                         android:id="@+id/btn_SubmitFeedback"
-                        android:textAllCaps="false"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
+                        android:background="@drawable/shape"
                         android:text="Submit"
-                        android:textColor="@color/white"
-                        android:background="@drawable/shape"/>
+                        android:textAllCaps="false"
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
-
-
 
 
             </LinearLayout>

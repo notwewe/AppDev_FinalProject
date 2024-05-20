@@ -52,10 +52,14 @@
 
                 <Button
                     android:id="@+id/orderitem_cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="149dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="bottom"
-                    android:text="Cancel Order"/>
+                    android:layout_marginTop="9dp"
+                    android:background="@drawable/shape"
+                    android:fontFamily="@font/league_med"
+                    android:text="Cancel Order"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <LinearLayout
@@ -65,14 +69,16 @@
                 android:orientation="vertical"
                 android:layout_gravity="end"
                 android:padding="5dp">
+
                 <TextView
                     android:id="@+id/orderitem_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="₱20.00"
-                    android:gravity="end"
                     android:fontFamily="@font/poppins_bold"
-                    android:textSize="20sp"/>
+                    android:gravity="end"
+                    android:text="₱20.00"
+                    android:textColor="@color/redMaroon"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/orderitem_quantity"

@@ -81,7 +81,7 @@ public class CheckoutFragment extends Fragment {
         //get the spinner from the xml.
         Spinner dropdown = view.findViewById(R.id.spinner1);
         //create a list of items for the spinner.
-        String[] items = new String[]{"1", "2", "three"};
+        String[] items = new String[]{"1", "2", "3"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, items);
