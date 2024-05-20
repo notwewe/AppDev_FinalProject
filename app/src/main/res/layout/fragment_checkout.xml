@@ -61,6 +61,7 @@
                 android:id="@+id/spinner1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown" />
@@ -73,10 +74,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Order Summary"
-                android:textSize="15sp" />
+                android:textSize="18sp" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -93,7 +95,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
@@ -101,14 +103,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Subtotal" />
+                    android:fontFamily="@font/league_med"
+                    android:text="Subtotal"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/league_med"
                     android:gravity="end"
-                    android:text="Checkout" />
+                    android:text="Checkout"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <Space
@@ -118,7 +124,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
@@ -126,14 +132,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Delivery" />
+                    android:fontFamily="@font/league_med"
+                    android:text="Delivery"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/league_med"
                     android:gravity="end"
-                    android:text="Checkout" />
+                    android:text="Checkout"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <Space
@@ -157,7 +167,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Total" />
+                    android:text="Total"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -165,14 +176,20 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="end"
-                    android:text="Checkout" />
+                    android:text="Checkout"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="Place Order" />
+                android:background="@drawable/shape"
+                android:fontFamily="@font/league_med"
+                android:text="Place Order"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="match_parent"

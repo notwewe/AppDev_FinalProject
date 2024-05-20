@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/white"
+        android:layout_height="140dp"
         android:padding="10dp"
-        app:cardPreventCornerOverlap="true"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="11dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
@@ -22,117 +23,138 @@
             <ImageView
                 android:id="@+id/orderitem_image"
                 android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/rounded_edittext"
-                app:srcCompat="@drawable/signinbg"
                 android:scaleType="centerCrop"
-                />
+                app:srcCompat="@drawable/signinbg" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_weight="0.7
-">
+"
+                    android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
                         android:layout_weight="1"
                         android:orientation="vertical"
                         android:padding="5dp">
+
                         <TextView
                             android:id="@+id/orderitem_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Shakey's Pizza"
                             android:fontFamily="@font/poppins_bold"
-                            android:textSize="18sp"/>
+                            android:text="Shakey's Pizza"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/orderitem_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="29 Nov, 01:20 pm "
-                            android:layout_marginTop="-10dp"/>
-
-
+                            android:layout_marginTop="-10dp"
+                            android:text="29 Nov, 01:20 pm " />
 
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="58dp"
+                        android:layout_gravity="end"
                         android:layout_weight="1.5"
                         android:orientation="vertical"
-                        android:layout_gravity="end"
                         android:padding="5dp">
+
                         <TextView
                             android:id="@+id/orderitem_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="₱20.00"
-                            android:gravity="end"
                             android:fontFamily="@font/poppins_bold"
-                            android:textSize="20sp"/>
+                            android:gravity="end"
+                            android:text="₱20.00"
+                            android:textColor="@color/redMaroon"
+                            android:textSize="20sp" />
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/orderitem_quantity"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="2 items"-->
-<!--                            android:gravity="end"-->
-<!--                            android:fontFamily="@font/poppins"-->
-<!--                            android:textSize="10sp"/>-->
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/orderitem_quantity"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="2 items"-->
+                        <!--                            android:gravity="end"-->
+                        <!--                            android:fontFamily="@font/poppins"-->
+                        <!--                            android:textSize="10sp"/>-->
                     </LinearLayout>
                 </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
-
+                    android:layout_height="135dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
 
                     <Button
                         android:id="@+id/confirmorder_cancel"
-                        android:layout_width="180dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="0.5"
-                        android:text="Cancel Order"/>
+                        android:layout_width="149dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape"
+                        android:fontFamily="@font/league_med"
+                        android:text="Cancel Order"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
 
                     <Space
                         android:layout_width="20dp"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1">
+
                         <Button
                             android:id="@+id/confirmorder_addquantity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
                             android:layout_weight="1"
-                            android:text="+"/>
+                            android:background="@drawable/shape"
+                            android:text="+"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:id="@+id/confirmorder_quantity"
-                            android:layout_width="wrap_content"
+                            android:layout_width="30dp"
                             android:layout_height="wrap_content"
-                            android:text="2"/>
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/league_med"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textSize="24sp" />
+
                         <Button
                             android:id="@+id/confirmorder_minusquantity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
+                            android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:text="-"/>
+                            android:background="@drawable/shape"
+                            android:text="-"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 

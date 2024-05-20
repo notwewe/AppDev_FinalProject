@@ -184,12 +184,12 @@
                     android:layout_gravity="bottom|center|end"
                     android:layout_weight="0"
                     android:background="@drawable/shape"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/league_med"
                     android:foregroundGravity="center"
                     android:gravity="center"
                     android:text="Add To Cart"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="match_parent"

@@ -7,13 +7,14 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/white"
+        android:layout_height="140dp"
         android:padding="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="11dp"
+        app:cardElevation="5dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,11 +24,10 @@
             <ImageView
                 android:id="@+id/orderitem_image"
                 android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/rounded_edittext"
-                app:srcCompat="@drawable/signinbg"
                 android:scaleType="centerCrop"
-                />
+                app:srcCompat="@drawable/signinbg" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,27 +35,27 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:padding="5dp">
+
                 <TextView
                     android:id="@+id/orderitem_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shakey's Pizza"
                     android:fontFamily="@font/poppins_bold"
-                    android:textSize="20sp"/>
+                    android:text="Shakey's Pizza"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/orderitem_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="29 Nov, 01:20 pm "
-                    android:layout_marginTop="-10dp"/>
+                    android:layout_marginTop="-10dp"
+                    android:text="29 Nov, 01:20 pm " />
 
                 <Button
                     android:id="@+id/orderitem_cancel"
                     android:layout_width="149dp"
                     android:layout_height="45dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="18.3dp"
                     android:background="@drawable/shape"
                     android:fontFamily="@font/league_med"
                     android:text="Cancel Order"
@@ -65,9 +65,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="end"
                 android:layout_weight="1.5"
                 android:orientation="vertical"
-                android:layout_gravity="end"
                 android:padding="5dp">
 
                 <TextView
@@ -84,10 +84,10 @@
                     android:id="@+id/orderitem_quantity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="2 items"
-                    android:gravity="end"
                     android:fontFamily="@font/poppins"
-                    android:textSize="10sp"/>
+                    android:gravity="end"
+                    android:text="2 items"
+                    android:textSize="10sp" />
             </LinearLayout>
 
 

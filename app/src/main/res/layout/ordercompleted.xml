@@ -7,13 +7,14 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/white"
+        android:layout_height="140dp"
         android:padding="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="11dp"
+        app:cardElevation="5dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,44 +24,44 @@
             <ImageView
                 android:id="@+id/orderitem_image"
                 android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/rounded_edittext"
-                app:srcCompat="@drawable/signinbg"
                 android:scaleType="centerCrop"
-                />
+                app:srcCompat="@drawable/signinbg" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_weight="0.7
-">
+"
+                    android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical"
                         android:padding="5dp">
+
                         <TextView
                             android:id="@+id/orderitem_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Shakey's Pizza"
                             android:fontFamily="@font/poppins_bold"
-                            android:textSize="20sp"/>
+                            android:text="Shakey's Pizza"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/orderitem_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="29 Nov, 01:20 pm "
-                            android:layout_marginTop="-10dp"/>
-
-
+                            android:layout_marginTop="-10dp"
+                            android:text="29 Nov, 01:20 pm " />
 
 
                     </LinearLayout>
@@ -68,9 +69,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_gravity="end"
                         android:layout_weight="1.5"
                         android:orientation="vertical"
-                        android:layout_gravity="end"
                         android:padding="5dp">
 
                         <TextView
@@ -87,49 +88,49 @@
                             android:id="@+id/orderitem_quantity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2 items"
-                            android:gravity="end"
                             android:fontFamily="@font/poppins"
-                            android:textSize="10sp"/>
-                        </LinearLayout>
+                            android:gravity="end"
+                            android:text="2 items"
+                            android:textSize="10sp" />
                     </LinearLayout>
+                </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-
-                <Button
-                    android:id="@+id/orderitem_review"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/shape"
-                    android:fontFamily="@font/league_med"
-                    android:text="Review"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/orderitem_orderagain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape2"
-                    android:fontFamily="@font/league_med"
-                    android:text="Order again"
-                    android:textColor="@color/maroon" />
+                    android:orientation="horizontal">
 
 
+                    <Button
+                        android:id="@+id/orderitem_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape"
+                        android:fontFamily="@font/league_med"
+                        android:text="Review"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/orderitem_orderagain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape2"
+                        android:fontFamily="@font/league_med"
+                        android:text="Order again"
+                        android:textColor="@color/maroon" />
+
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
 
         </LinearLayout>
