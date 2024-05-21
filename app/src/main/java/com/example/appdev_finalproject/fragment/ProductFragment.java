@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,18 +62,15 @@ public class ProductFragment extends Fragment {
             @Override
             public void onItemClick(FoodItem item) {
                 // Navigate to the food fragment
-                Fragment foodFragment = new FoodFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString("Name", item.getName());
                 bundle.putString("Price", item.getPrice());
                 bundle.putString("Description", item.getDescription());
                 bundle.putString("Rating", item.getRating());
                 bundle.putInt("ImageResource", item.getImageResource());
-                foodFragment.setArguments(bundle);
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, foodFragment)
-                        .addToBackStack(null)
-                        .commit();
+
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.foodFragment, bundle);
             }
         });
         recyclerView.setAdapter(mAdapter);
