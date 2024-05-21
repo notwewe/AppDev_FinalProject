@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="10dp"
-    app:cardBackgroundColor="@color/white"
+    android:id="@+id/foodcard"
+    android:layout_width="wrap_content"
+    android:layout_height="220dp"
+
+
+    android:clickable="true"
     android:padding="10dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="11dp"
+    app:cardElevation="10dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true">
 
 
-    app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="11dp">
-
-
-<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/fooditemimg"
+            android:layout_width="422dp"
+            android:layout_height="156dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/chicken_adobo"/>
+            android:foregroundGravity="fill_horizontal|fill"
+            android:src="@drawable/chicken_adobo" />
 
         <TextView
             android:id="@+id/food_item_name"
-            android:layout_width="match_parent"
-            android:layout_weight="3"
+            android:layout_width="353dp"
             android:layout_height="match_parent"
-            android:text="Chicken Adobo"
-            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_weight="3"
             android:fontFamily="@font/poppins_bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="Chicken Adobo"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/food_item_price"
             android:layout_width="match_parent"
-            android:layout_weight="3"
             android:layout_height="match_parent"
-            android:text="$10.00"
-            android:textSize="15sp"
+            android:layout_weight="3"
             android:fontFamily="@font/poppins"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="$10.00"
+            android:textColor="@color/redMaroon"
+            android:textSize="15sp" />
 
     </LinearLayout>
-
-
 
 
 </androidx.cardview.widget.CardView>

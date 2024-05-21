@@ -1,15 +1,15 @@
 package com.example.appdev_finalproject.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.appdev_finalproject.R;
 import com.example.appdev_finalproject.adapter.ProductAdapter;
@@ -17,46 +17,21 @@ import com.example.appdev_finalproject.model.FoodItem;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProductFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProductFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-
+    private ProductAdapter mAdapter;
     private ArrayList<FoodItem> items;
-
 
     public ProductFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProductPage.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ProductFragment newInstance(String param1, String param2) {
         ProductFragment fragment = new ProductFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("param1", param1);
+        args.putString("param2", param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -65,45 +40,112 @@ public class ProductFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // You can handle any other parameters here if needed
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_product_page, container, false);
-
-        String GenreTitle = getArguments().getString("GenreTitle");
-        String GenreSubTitle = getArguments().getString("GenreSubtitle");
 
         TextView genreTitle = view.findViewById(R.id.genreTitle);
         TextView genreSubTitle = view.findViewById(R.id.genreDescription);
 
-        genreTitle.setText(GenreTitle);
-        genreSubTitle.setText(GenreSubTitle);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.product_recyclerview);
-
+        recyclerView = view.findViewById(R.id.product_recyclerview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
 
         items = new ArrayList<>();
-
-        items.add(new FoodItem("Chicken Adobo", "$27.00"));
-        items.add(new FoodItem("Dildo Adobo", "$100.00"));
-        items.add(new FoodItem("Buang Adobo", "$32.00"));
-        items.add(new FoodItem("Ungart Adobo", "$13.00"));
-
-
-
-        mAdapter = new ProductAdapter(requireContext(), items);
+        mAdapter = new ProductAdapter(requireContext(), items, new ProductAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(FoodItem item) {
+                // Navigate to the food fragment
+                Fragment foodFragment = new FoodFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("Name", item.getName());
+                bundle.putString("Price", item.getPrice());
+                bundle.putString("Description", item.getDescription());
+                bundle.putString("Rating", item.getRating());
+                bundle.putInt("ImageResource", item.getImageResource());
+                foodFragment.setArguments(bundle);
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, foodFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         recyclerView.setAdapter(mAdapter);
+
+        if (getArguments() != null) {
+            String genre = getArguments().getString("GenreTitle");
+            genreTitle.setText(genre);
+            genreSubTitle.setText(getArguments().getString("GenreSubtitle"));
+
+            switch (genre) {
+                case "Meal":
+                    setMealItems();
+                    break;
+                case "Vegan":
+                    setVeganItems();
+                    break;
+                case "Dessert":
+                    setDessertItems();
+                    break;
+                case "Drinks":
+                    setDrinkItems();
+                    break;
+                case "Snacks":
+                    setSnackItems();
+                    break;
+            }
+        }
 
         return view;
     }
 
+    private void setSnackItems() {
+        items.clear();
+        items.add(new FoodItem("Meat Roll", "₱15.00", "Tasty meat roll!", "4.5", R.drawable.meatroll));
+        items.add(new FoodItem("Ham Sandwich", "₱30.00", "Delicious ham sandwich!", "4.2", R.drawable.hamsand));
+        items.add(new FoodItem("Egg Sandwich", "₱25.00", "Egg sandwich with fresh veggies!", "4.3", R.drawable.eggsand));
+        items.add(new FoodItem("Hotcake", "₱10.00", "Creamy and Fluffy hotcake!", "4.8", R.drawable.hotcake));
+        mAdapter.notifyDataSetChanged();
+    }
 
+    private void setVeganItems() {
+        items.clear();
+        items.add(new FoodItem("Vegan Burger", "₱40.00", "Healthy vegan burger!", "4.7", R.drawable.vegan_burger));
+        items.add(new FoodItem("Salad Bowl", "₱35.00", "Fresh and healthy salad bowl!", "4.5", R.drawable.salad_bowl));
+        items.add(new FoodItem("Tofu Stir Fry", "₱30.00", "Delicious tofu stir fry!", "4.6", R.drawable.tofu_stir_fry));
+        items.add(new FoodItem("Vegan Wrap", "₱25.00", "Tasty vegan wrap!", "4.4", R.drawable.vegan_wrap));
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void setDessertItems() {
+        items.clear();
+        items.add(new FoodItem("Chocolate Cake", "₱20.00", "Rich chocolate cake!", "4.9", R.drawable.chocolate_cake));
+        items.add(new FoodItem("Ice Cream", "₱15.00", "Creamy vanilla ice cream!", "4.8", R.drawable.ice_cream));
+        items.add(new FoodItem("Fruit Tart", "₱25.00", "Fresh fruit tart!", "4.7", R.drawable.fruit_tart));
+        items.add(new FoodItem("Cupcake", "₱10.00", "Delicious cupcake!", "4.6", R.drawable.cupcake));
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void setDrinkItems() {
+        items.clear();
+        items.add(new FoodItem("Mango Shake", "₱30.00", "Refreshing mango shake!", "4.7", R.drawable.mangoshake));
+        items.add(new FoodItem("Lemonade", "₱20.00", "Cool and refreshing lemonade!", "4.5", R.drawable.lemonade));
+        items.add(new FoodItem("Coffee", "₱15.00", "Hot brewed coffee!", "4.6", R.drawable.coffee));
+        items.add(new FoodItem("Milo", "₱30.00", "Delicious Milo!", "4.8", R.drawable.milo));
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void setMealItems() {
+        items.clear();
+        items.add(new FoodItem("Spaghetti", "₱25.00", "Classic spaghetti with meat sauce and parmesan cheese.", "4.5", R.drawable.spag));
+        items.add(new FoodItem("Chicken Adobo", "₱30.00", "Tender chicken cooked in soy sauce, vinegar, and garlic.", "4.4", R.drawable.chickenado));
+        items.add(new FoodItem("Burger Steak", "₱40.00", "Juicy burger patty served with flavorful gravy and rice.", "4.6", R.drawable.burgersteak));
+        items.add(new FoodItem("Pork Silog", "₱35.00", "Savory marinated pork served with garlic fried rice and egg.", "4.3", R.drawable.porksilog));
+        mAdapter.notifyDataSetChanged();
+    }
 }

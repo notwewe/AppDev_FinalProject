@@ -18,11 +18,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:padding="15dp"
             android:paddingBottom="0dp">
 
@@ -61,12 +65,13 @@
                     app:cardCornerRadius="20dp">
 
                     <ImageView
+                        android:id="@+id/foodimage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="0"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/chicken_adobo" />
+                        android:src="@drawable/meatroll" />
                 </androidx.cardview.widget.CardView>
 
                 <Space
@@ -100,6 +105,7 @@
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/increment"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
@@ -110,10 +116,11 @@
                             android:textSize="20sp" />
 
                         <TextView
+                            android:id="@+id/quantitynum"
                             android:layout_width="36dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
 
+                            android:layout_gravity="center"
                             android:layout_weight="0"
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
@@ -121,6 +128,7 @@
                             android:textSize="24sp" />
 
                         <Button
+                            android:id="@+id/decrement"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
@@ -179,6 +187,7 @@
                     android:layout_weight="0" />
 
                 <Button
+                    android:id="@+id/btnaddtocart"
                     android:layout_width="370dp"
                     android:layout_height="55dp"
                     android:layout_gravity="bottom|center|end"

@@ -13,28 +13,32 @@
         android:background="#F5CB58"
         android:orientation="vertical"
         >
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"/>
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
-            android:padding="15dp"
-            android:paddingBottom="0dp"
-            >
+            android:padding="15dp">
 
             <TextView
+                android:id="@+id/textView8"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="30sp"
                 android:gravity="center"
-                android:text="My Orders"/>
+                android:text="My Orders"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

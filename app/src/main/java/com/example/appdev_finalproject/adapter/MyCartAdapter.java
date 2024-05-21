@@ -45,6 +45,11 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         return cartItems.size();
     }
 
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+        notifyDataSetChanged(); // Notify the adapter that the dataset has changed
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView itemNameTextView;
         public TextView itemPriceTextView;

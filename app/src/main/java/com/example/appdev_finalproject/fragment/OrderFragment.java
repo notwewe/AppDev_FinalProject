@@ -102,10 +102,10 @@ public class OrderFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, hh:mm a");
         String formattedDate = sdf.format(date);
 
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Ungart", formattedDate, 100.00f, 1, "Active"));
-        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Botyok", formattedDate, 100.00f, 1, "Completed"));
+//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
+//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
+//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Ungart", formattedDate, 100.00f, 1, "Active"));
+//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Botyok", formattedDate, 100.00f, 1, "Completed"));
 
         ArrayList<OrderItem> ActiveItems = new ArrayList<>();
         for (int i = 0; i < orderItems.size(); i++) {

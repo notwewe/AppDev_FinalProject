@@ -60,163 +60,152 @@
                 android:padding="20dp">
 
                 <LinearLayout
+                    android:id="@+id/categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
-
+                    <!-- Category Buttons -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
+                        <!-- Snacks Button -->
                         <LinearLayout
                             android:id="@+id/btnSnacks"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Snacks"
-                                android:textSize="15sp"
                                 android:fontFamily="@font/poppins_bold"
-                                android:gravity="center"/>
+                                android:gravity="center"
+                                android:text="Snacks"
+                                android:textSize="15sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:layout_weight="1"
-                                android:src="@drawable/snacks"/>
-
-
+                                android:src="@drawable/snacks" />
 
                         </LinearLayout>
 
+                        <!-- Meal Button -->
                         <LinearLayout
                             android:id="@+id/btnMeal"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Meal"
-                                android:textSize="15sp"
                                 android:fontFamily="@font/poppins_bold"
-                                android:gravity="center"/>
+                                android:gravity="center"
+                                android:text="Meal"
+                                android:textSize="15sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:layout_weight="1"
-                                android:src="@drawable/meal"/>
-
-
+                                android:src="@drawable/meal" />
 
                         </LinearLayout>
 
+                        <!-- Vegan Button -->
                         <LinearLayout
                             android:id="@+id/btnVegan"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Vegan"
-                                android:textSize="15sp"
                                 android:fontFamily="@font/poppins_bold"
-                                android:gravity="center"/>
+                                android:gravity="center"
+                                android:text="Vegan"
+                                android:textSize="15sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:layout_weight="1"
-                                android:src="@drawable/vegan"/>
+                                android:src="@drawable/vegan" />
 
                         </LinearLayout>
 
+                        <!-- Dessert Button -->
                         <LinearLayout
                             android:id="@+id/btnDessert"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Dessert"
-                                android:textSize="15sp"
                                 android:fontFamily="@font/poppins_bold"
-                                android:gravity="center"/>
+                                android:gravity="center"
+                                android:text="Dessert"
+                                android:textSize="15sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:layout_weight="1"
-                                android:src="@drawable/dessert"/>
-
-
+                                android:src="@drawable/dessert" />
 
                         </LinearLayout>
 
+                        <!-- Drinks Button -->
                         <LinearLayout
                             android:id="@+id/btnDrinks"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:clickable="true">
+                            android:clickable="true"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Drinks"
-                                android:textSize="15sp"
                                 android:fontFamily="@font/poppins_bold"
-                                android:gravity="center"/>
+                                android:gravity="center"
+                                android:text="Drinks"
+                                android:textSize="15sp" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:layout_weight="1"
-                                android:src="@drawable/drinks"/>
-
-
+                                android:src="@drawable/drinks" />
 
                         </LinearLayout>
-
-
-
-
-
-
-
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <Space
@@ -249,37 +238,71 @@
                             app:cardBackgroundColor="#F5CB58"
                             app:cardCornerRadius="24dp">
 
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/meatroll" />
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/bestSeller_2"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
+                            android:clickable="true"
                             app:cardBackgroundColor="#F5CB58"
                             app:cardCornerRadius="24dp">
 
+                            <ImageView
+                                android:id="@+id/imageView5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/hotcake" />
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/bestSeller_3"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
+                            android:clickable="true"
                             app:cardBackgroundColor="#F5CB58"
                             app:cardCornerRadius="24dp">
 
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/hamsand" />
                         </androidx.cardview.widget.CardView>
 
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/bestSeller_4"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
+                            android:clickable="true"
                             app:cardBackgroundColor="#F5CB58"
                             app:cardCornerRadius="24dp">
 
+                            <ImageView
+                                android:id="@+id/imageView7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/eggsand" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
 
@@ -307,23 +330,41 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/recommended1"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
+                            android:clickable="true"
                             app:cardBackgroundColor="#F5CB58"
                             app:cardCornerRadius="24dp">
 
+                            <ImageView
+                                android:id="@+id/imageView8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/meatroll" />
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/recommended2"
                             android:layout_width="80dp"
                             android:layout_height="150dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
+                            android:clickable="true"
                             app:cardBackgroundColor="#F5CB58"
                             app:cardCornerRadius="24dp">
 
+                            <ImageView
+                                android:id="@+id/imageView9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/mangoshake" />
                         </androidx.cardview.widget.CardView>
 
 
@@ -353,13 +394,22 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/facultyChoice"
                             android:layout_width="345dp"
                             android:layout_height="166dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
+                            android:clickable="true"
                             app:cardBackgroundColor="#F5CB58"
                             app:cardCornerRadius="24dp">
 
+                            <ImageView
+                                android:id="@+id/imageView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/hotcake" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
 
@@ -373,7 +423,7 @@
        </ScrollView>
 
 
-    </LinearLayout>
+   </LinearLayout>
 
 
 
