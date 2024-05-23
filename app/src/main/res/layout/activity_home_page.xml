@@ -43,14 +43,16 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:background="@drawable/rounded_navview"
+        android:visibility="invisible"
         app:headerLayout="@layout/drawer_header"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/drawer_menu"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white"/>
+        tools:visibility="invisible" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

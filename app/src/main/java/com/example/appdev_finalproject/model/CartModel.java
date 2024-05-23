@@ -1,21 +1,19 @@
-package com.example.appdev_finalproject;
-
-import com.example.appdev_finalproject.model.CartItem;
+package com.example.appdev_finalproject.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartManager {
-    private static CartManager instance;
+public class CartModel {
+    private static CartModel instance;
     private List<CartItem> cartItems;
 
-    private CartManager() {
+    private CartModel() {
         cartItems = new ArrayList<>();
     }
 
-    public static synchronized CartManager getInstance() {
+    public static synchronized CartModel getInstance() {
         if (instance == null) {
-            instance = new CartManager();
+            instance = new CartModel();
         }
         return instance;
     }

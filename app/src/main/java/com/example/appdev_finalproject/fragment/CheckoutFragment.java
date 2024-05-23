@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.appdev_finalproject.R;
 import com.example.appdev_finalproject.adapter.CheckoutAdapter;
@@ -75,11 +76,17 @@ public class CheckoutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_checkout, container, false);
 
+        String deliveryType = getArguments().getString("deliveryType");
+
+
+
+        TextView checkoutTitle = view.findViewById(R.id.txtTypeOfDelivery);
         //get the spinner from the xml.
-        Spinner dropdown = view.findViewById(R.id.spinner1);
+        Spinner dropdown = view.findViewById(R.id.SpinnerOptions);
         //create a list of items for the spinner.
         String[] items = new String[]{"1", "2", "3"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
@@ -87,6 +94,12 @@ public class CheckoutFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, items);
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
+
+        if(deliveryType.equals("Delivery")){
+            checkoutTitle.setText("Building/Classroom No. ");
+        } else if(deliveryType.equals("Pickup")){
+            checkoutTitle.setText("Location | Pickup Time");
+        }
 
         recyclerView = (RecyclerView) view.findViewById(R.id.confirmOrderRecyclerView);
 

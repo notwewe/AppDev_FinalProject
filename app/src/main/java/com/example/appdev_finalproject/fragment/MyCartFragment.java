@@ -1,8 +1,5 @@
 package com.example.appdev_finalproject.fragment;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +19,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appdev_finalproject.CartManager;
+import com.example.appdev_finalproject.model.CartModel;
 import com.example.appdev_finalproject.R;
 import com.example.appdev_finalproject.adapter.MyCartAdapter;
 import com.example.appdev_finalproject.model.CartItem;
@@ -92,8 +89,7 @@ public class MyCartFragment extends Fragment {
             public void onClick(View v) {
                 // Handle checkout button click
                 Bundle bundle = new Bundle();
-                bundle.putString("GenreTitle", "Drinks");
-                bundle.putString("GenreSubtitle", "Refreshing!");
+                bundle.putString("deliveryType", dropdown.getSelectedItem().toString());
 
 
                 NavController navController = Navigation.findNavController(v);
@@ -144,7 +140,7 @@ public class MyCartFragment extends Fragment {
 
         // Get the cart items from the CartManager
         cartItems.clear();
-        cartItems.addAll(CartManager.getInstance().getCartItems());
+        cartItems.addAll(CartModel.getInstance().getCartItems());
 
         // Update the adapter with the cart items
         mAdapter.setCartItems(cartItems);

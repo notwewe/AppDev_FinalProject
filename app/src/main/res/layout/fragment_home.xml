@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/homeNavigation"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -48,14 +49,13 @@
                android:textSize="18dp" />
        </LinearLayout>
 
-       <ScrollView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-          android:background="@drawable/rounded_pagecard">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/rounded_pagecard"
                 android:orientation="vertical"
                 android:padding="20dp">
 
@@ -420,11 +420,11 @@
             </LinearLayout>
 
 
-       </ScrollView>
 
 
    </LinearLayout>
 
 
 
-</FrameLayout>
+
+</ScrollView>

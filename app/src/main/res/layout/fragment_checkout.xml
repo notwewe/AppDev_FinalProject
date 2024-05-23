@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MyCartFragment">
+    tools:context=".fragment.CheckoutFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -51,6 +51,7 @@
             android:padding="25dp">
 
             <TextView
+                android:id="@+id/txtTypeOfDelivery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -62,7 +63,7 @@
             </TextView>
 
             <Spinner
-                android:id="@+id/spinner1"
+                android:id="@+id/SpinnerOptions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

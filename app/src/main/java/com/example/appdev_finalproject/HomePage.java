@@ -48,7 +48,27 @@ public class HomePage extends AppCompatActivity {
 
         NavigationUI.setupWithNavController(bottomNav, navController);
 
-
+        bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.homeFragment:
+                        // Clear the back stack before navigating to the home page
+                        navController.popBackStack(R.id.homeFragment, false);
+                        break;
+                    case R.id.orderFragment:
+                        navController.navigate(R.id.orderFragment);
+                        break;
+                    case R.id.mycartFragment:
+                        navController.navigate(R.id.mycartFragment);
+                        break;
+                    case R.id.profileFragment:
+                        navController.navigate(R.id.profileFragment);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
 

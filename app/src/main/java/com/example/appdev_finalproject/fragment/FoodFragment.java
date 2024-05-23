@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.appdev_finalproject.CartManager;
+import com.example.appdev_finalproject.model.CartModel;
 import com.example.appdev_finalproject.R;
 import com.example.appdev_finalproject.model.CartItem;
 
@@ -53,7 +53,7 @@ public class FoodFragment extends Fragment {
                 CartItem cartItem = new CartItem(itemName, itemPrice, itemQuantity);
 
                 // Add the CartItem object to the cartItems list in the CartManager
-                CartManager.getInstance().addToCart(cartItem);
+                CartModel.getInstance().addToCart(cartItem);
             }
         });
 
