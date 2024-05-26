@@ -32,6 +32,7 @@ public class MyCartFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private MyCartAdapter mAdapter;
+    private List<CartItem> cartItems;
     private TextView subtotalAmountText;
     private View cartRecyclerView;
     private View cartIcon;
@@ -41,7 +42,6 @@ public class MyCartFragment extends Fragment {
     private Spinner spinner_mycart;
     private TextView methodofclaiming;
 
-    private List<CartItem> cartItems;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,7 +76,7 @@ public class MyCartFragment extends Fragment {
 //        cartItems.add(new CartItem("Item 6", 15.00f, 1));
 
 
-        mAdapter = new MyCartAdapter(getContext(), cartItems);
+        mAdapter = new MyCartAdapter(getContext(), cartItems, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(mAdapter);
 
@@ -91,7 +91,6 @@ public class MyCartFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("deliveryType", dropdown.getSelectedItem().toString());
 
-
                 NavController navController = Navigation.findNavController(v);
                 navController.navigate(R.id.checkoutFragment, bundle);
             }
@@ -102,10 +101,10 @@ public class MyCartFragment extends Fragment {
         return view;
     }
 
-    private void updateSubtotal() {
+    public void updateSubtotal() {
         float subtotal = 0.0f;
         for (CartItem item : cartItems) {
-            subtotal += item.getPrice() * (float)item.getQuantity();
+            subtotal += item.getPrice() * item.getQuantity();
         }
         DecimalFormat df = new DecimalFormat("0.00");
         subtotalAmountText.setText("₱" + df.format(subtotal));

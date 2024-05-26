@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="140dp"
@@ -116,17 +119,6 @@
                         android:text="Review"
                         android:textColor="@color/white" />
 
-                    <Button
-                        android:id="@+id/orderitem_orderagain"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/shape2"
-                        android:fontFamily="@font/league_med"
-                        android:text="Order again"
-                        android:textColor="@color/maroon" />
 
 
                 </LinearLayout>
@@ -136,5 +128,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.appdev_finalproject.fragment;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +17,9 @@ import androidx.fragment.app.Fragment;
 import com.example.appdev_finalproject.model.CartModel;
 import com.example.appdev_finalproject.R;
 import com.example.appdev_finalproject.model.CartItem;
+import com.example.appdev_finalproject.model.State;
+
+import java.util.Date;
 
 public class FoodFragment extends Fragment {
 
@@ -41,6 +46,7 @@ public class FoodFragment extends Fragment {
             foodDescription.setText(getArguments().getString("Description"));
             foodPrice.setText(getArguments().getString("Price"));
             foodImage.setImageResource(getArguments().getInt("ImageResource"));
+            foodImage.setTag(getArguments().getInt("ImageResource"));
         }
 
         addToCartButton.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +56,13 @@ public class FoodFragment extends Fragment {
                 String itemName = foodName.getText().toString();
                 float itemPrice = Float.parseFloat(foodPrice.getText().toString().substring(1)); // Remove the currency symbol
                 int itemQuantity = quantity; // Use the current quantity
-                CartItem cartItem = new CartItem(itemName, itemPrice, itemQuantity);
+                int itemImage = (int) foodImage.getTag();
+
+                CartItem cartItem = new CartItem(itemName, itemPrice, itemQuantity, new Date(), itemImage, State.ACTIVE);
 
                 // Add the CartItem object to the cartItems list in the CartManager
                 CartModel.getInstance().addToCart(cartItem);
+                Toast.makeText(getContext(), foodName.getText() + "(Qty. " + quantity + ") added to cart!" , Toast.LENGTH_SHORT).show();
             }
         });
 

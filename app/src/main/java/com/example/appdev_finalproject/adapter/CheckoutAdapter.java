@@ -9,20 +9,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdev_finalproject.R;
-import com.example.appdev_finalproject.model.OrderItem;
+import com.example.appdev_finalproject.fragment.CheckoutFragment;
+import com.example.appdev_finalproject.model.CartItem;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.ViewHolder>{
     private Context context;
-    private ArrayList<OrderItem> orderItems;
+    private ArrayList<CartItem> orderItems;
+    private CheckoutFragment checkoutFragment;
 
-    public CheckoutAdapter(Context context, ArrayList<OrderItem> orderItems) {
+    public CheckoutAdapter(Context context, ArrayList<CartItem> orderItems, CheckoutFragment checkoutFragment) {
         this.context = context;
         this.orderItems = orderItems;
+        this.checkoutFragment = checkoutFragment;
     }
 
     @NonNull
@@ -33,12 +40,51 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CheckoutAdapter.ViewHolder holder, int position) {
-        OrderItem orderItem = orderItems.get(position);
-        holder.orderItemImage.setImageDrawable(orderItem.getImage());
+        CartItem orderItem = orderItems.get(position);
+        holder.orderItemImage.setImageResource(orderItem.getImage());
         holder.orderItemName.setText(orderItem.getName());
-        holder.orderItemDate.setText(orderItem.getDate().toString());
-        holder.orderItemPrice.setText(orderItem.getPrice().toString());
-        holder.orderItemQuantity.setText(orderItem.getQuantity());
+        holder.orderItemPrice.setText(String.format("%.2f", orderItem.getComputedPrice()));
+        holder.orderItemQuantity.setText(String.format("%d", orderItem.getQuantity()));
+
+        holder.orderItemDate.setText(orderItem.getDate());
+
+        holder.orderItemAddQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                orderItem.setQuantity(orderItem.getQuantity() + 1);
+                holder.orderItemQuantity.setText(String.format("%d", orderItem.getQuantity()));
+                notifyDataSetChanged();
+                checkoutFragment.updateTotalPrice();
+            }
+        });
+
+        holder.orderItemSubtractQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(orderItem.getQuantity() > 1){
+                    orderItem.setQuantity(orderItem.getQuantity() - 1);
+                    holder.orderItemQuantity.setText(String.format("%d", orderItem.getQuantity()));
+                    notifyDataSetChanged();
+                    checkoutFragment.updateTotalPrice();
+                }
+            }
+        });
+
+        holder.orderItemCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                orderItems.remove(orderItem);
+
+                if(orderItems.isEmpty()){
+                    NavController navController = Navigation.findNavController(v);
+                    navController.navigate(R.id.mycartFragment);
+                }
+
+                notifyDataSetChanged();
+                checkoutFragment.updateTotalPrice();
+
+            }
+        });
     }
 
     @Override
@@ -51,6 +97,8 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.ViewHo
         TextView orderItemName;
         TextView orderItemDate;
         Button orderItemCancel;
+        Button orderItemAddQuantity;
+        Button orderItemSubtractQuantity;
         TextView orderItemPrice;
         TextView orderItemQuantity;
 
@@ -59,9 +107,15 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.ViewHo
             orderItemImage = itemView.findViewById(R.id.orderitem_image);
             orderItemName = itemView.findViewById(R.id.orderitem_name);
             orderItemDate = itemView.findViewById(R.id.orderitem_date);
-            orderItemCancel = itemView.findViewById(R.id.orderitem_cancel);
+            orderItemCancel = itemView.findViewById(R.id.confirmorder_cancel);
             orderItemPrice = itemView.findViewById(R.id.orderitem_price);
             orderItemQuantity = itemView.findViewById(R.id.confirmorder_quantity);
+            orderItemAddQuantity = itemView.findViewById(R.id.confirmorder_addquantity);
+            orderItemSubtractQuantity = itemView.findViewById(R.id.confirmorder_minusquantity);
+
+
         }
+
+
     }
 }

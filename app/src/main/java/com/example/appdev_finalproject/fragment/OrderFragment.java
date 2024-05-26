@@ -1,121 +1,66 @@
 package com.example.appdev_finalproject.fragment;
 
-import android.graphics.PorterDuff;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.appdev_finalproject.R;
 import com.example.appdev_finalproject.adapter.OrderAdapter;
 import com.example.appdev_finalproject.model.OrderItem;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link OrderFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class OrderFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-
+    private OrderAdapter mAdapter;
     private ArrayList<OrderItem> orderItems;
-
-    public OrderFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CourseFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static OrderFragment newInstance(String param1, String param2) {
-        OrderFragment fragment = new OrderFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private MutableLiveData<ArrayList<OrderItem>> liveOrderItems = new MutableLiveData<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_myorder, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         recyclerView = view.findViewById(R.id.order_recyclerView);
+        orderItems = new ArrayList<>();
+        fetchOrdersFromDatabase("ACTIVE");
 
         Button btnActive = view.findViewById(R.id.btn_active);
         Button btnCompleted = view.findViewById(R.id.btn_completed);
         Button btnCancelled = view.findViewById(R.id.btn_cancelled);
 
-        btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
-        btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
-        btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        orderItems = new ArrayList<>();
-        Date date = new Date();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, hh:mm a");
-        String formattedDate = sdf.format(date);
-
-//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
-//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Chicken Adobo", formattedDate, 100.00f, 1, "Cancelled"));
-//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Ungart", formattedDate, 100.00f, 1, "Active"));
-//        orderItems.add(new OrderItem(getResources().getDrawable(R.drawable.chicken_adobo), "Botyok", formattedDate, 100.00f, 1, "Completed"));
-
-        ArrayList<OrderItem> ActiveItems = new ArrayList<>();
-        for (int i = 0; i < orderItems.size(); i++) {
-            if (orderItems.get(i).getState().equals("Active")) {
-                ActiveItems.add(orderItems.get(i));
+        liveOrderItems.observe(getViewLifecycleOwner(), new Observer<ArrayList<OrderItem>>() {
+            @Override
+            public void onChanged(ArrayList<OrderItem> orderItems) {
+                mAdapter = new OrderAdapter(requireContext(), orderItems, "ACTIVE");
+                recyclerView.setAdapter(mAdapter);
             }
-        }
-
-        mAdapter = new OrderAdapter(requireContext(), ActiveItems, "Active");
-        recyclerView.setAdapter(mAdapter);
+        });
 
         btnActive.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,14 +68,8 @@ public class OrderFragment extends Fragment {
                 btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
                 btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
                 btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
-                ArrayList<OrderItem> ActiveItems = new ArrayList<>();
-                for (int i = 0; i < orderItems.size(); i++) {
-                    if (orderItems.get(i).getState().equals("Active")) {
-                        ActiveItems.add(orderItems.get(i));
-                    }
-                }
-                mAdapter = new OrderAdapter(requireContext(), ActiveItems, "Active");
-                recyclerView.setAdapter(mAdapter);
+
+                fetchOrdersFromDatabase("ACTIVE");
             }
         });
 
@@ -140,15 +79,8 @@ public class OrderFragment extends Fragment {
                 btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
                 btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
                 btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
-                ArrayList<OrderItem> CancelledItems = new ArrayList<>();
-                for (int i = 0; i < orderItems.size(); i++) {
-                    if (orderItems.get(i).getState().equals("Cancelled")) {
-                        CancelledItems.add(orderItems.get(i));
-                    }
-                }
 
-                mAdapter = new OrderAdapter(requireContext(), CancelledItems, "Cancelled");
-                recyclerView.setAdapter(mAdapter);
+                fetchOrdersFromDatabase("CANCELLED");
             }
         });
 
@@ -158,15 +90,42 @@ public class OrderFragment extends Fragment {
                 btnCompleted.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape));
                 btnActive.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
                 btnCancelled.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.shape2));
-                ArrayList<OrderItem> CompletedItems = new ArrayList<>();
-                for (int i = 0; i < orderItems.size(); i++) {
-                    if (orderItems.get(i).getState().equals("Completed")) {
-                        CompletedItems.add(orderItems.get(i));
+
+                fetchOrdersFromDatabase("COMPLETED");
+            }
+        });
+    }
+
+    public void fetchOrdersFromDatabase(String state) {
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference ordersRef = db.child("orders");
+
+        ordersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<OrderItem> newOrderItems = new ArrayList<>();
+                for (DataSnapshot orderSnapshot : snapshot.getChildren()) {
+                    String orderId = (String) orderSnapshot.child("orderId").getValue();
+                    Map<String, Object> itemMap = (Map<String, Object>) orderSnapshot.child("cartItem").getValue();
+
+                    String itemName = (String) itemMap.get("name");
+                    float price = ((Number) itemMap.get("price")).floatValue();
+                    int quantity = ((Number) itemMap.get("quantity")).intValue();
+                    String itemState = (String) itemMap.get("state");
+                    int imageResId = ((Number) itemMap.get("image")).intValue();
+                    String date = (String) itemMap.get("date");
+
+                    if (itemState.equals(state)) {
+                        OrderItem item = new OrderItem(imageResId, itemName, date, price, quantity, itemState, orderId);
+                        newOrderItems.add(item);
                     }
                 }
+                liveOrderItems.setValue(newOrderItems);
+            }
 
-                mAdapter = new OrderAdapter(requireContext(), CompletedItems, "Completed");
-                recyclerView.setAdapter(mAdapter);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "Database error: " + error.getMessage());
             }
         });
     }

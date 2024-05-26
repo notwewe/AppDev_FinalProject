@@ -6,6 +6,7 @@ public class FoodItem {
     private String price;
     private String description;
     private String rating;
+
     private int imageResource;
 
     public FoodItem(String name, String price, String description, String rating, int imageResource) {

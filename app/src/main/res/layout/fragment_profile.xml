@@ -33,6 +33,7 @@
             >
 
             <TextView
+                android:id="@+id/tvStudentName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -43,6 +44,7 @@
                 android:textColor="@color/white"/>
 
             <TextView
+                android:id="@+id/tvStudentID"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins"
@@ -77,6 +79,7 @@
         android:layout_height="20dp"/>
 
     <TextView
+        android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
